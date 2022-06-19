@@ -12,9 +12,10 @@ const cx = classNames.bind(styles)
 function Search() {
     const [searchValue, setSearchValue] = useState('')
 
+    
     const searchInputRef = useRef()
-
-    const debouncedValue = useDebounce(searchInputRef)
+    
+    const debouncedValue = useDebounce(searchValue)
 
     const handleChangeSearchInput = (e) => {
         const inputValue = e.target.value 
