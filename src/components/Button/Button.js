@@ -28,7 +28,7 @@ function Button({
    var Comp = 'button';
 
    const props = { onClick, ...passProps };
-
+   
    if (to) {
       props.to = to;
       Comp = Link;
@@ -36,6 +36,7 @@ function Button({
       props.href = href;
       Comp = 'a';
    }
+
 
    if (disabled) {
       Object.keys(props).forEach((key) => {

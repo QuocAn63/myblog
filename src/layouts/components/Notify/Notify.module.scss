@@ -1,0 +1,37 @@
+.wrapper {
+    display: block;
+    padding: 8px;
+
+    .title {
+        font-weight: 700;
+        font-size: 1.5rem;
+        font-weight: 1.6rem;
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2
+    }
+
+    .meta {
+        font-size: 1.3rem;
+        line-height: 1.4rem;
+    }
+
+    .description {
+        margin: 6px 0 8px;
+        font-size: 1.4rem;
+        line-height: 1.5rem;
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3
+    }
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    & + .wrapper {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
