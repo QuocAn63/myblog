@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import styles from './Search.module.scss'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleNotch, faMagnifyingGlass, faSpinner, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faCircleNotch, faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 import HeadlessTippy from '@tippyjs/react/headless'
 import ResultItem from './ResultItem'

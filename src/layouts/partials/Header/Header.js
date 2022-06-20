@@ -3,16 +3,23 @@ import { NavLink } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
-import AccountMenu from '../../components/AccountMenuItem'
+import AccountMenu from '../../components/AccountMenuItem';
 import Search from '../../components/Search';
 import Image from '../../../components/Image';
-import Notify from '../../components/Notify'
+import Notify from '../../components/Notify';
 
-import HeadlessTippy from '@tippyjs/react/headless'
+import HeadlessTippy from '@tippyjs/react/headless';
 
 import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
-import { faArrowRightFromBracket, faBell, faFileLines, faGear, faPenToSquare, faUser } from '@fortawesome/free-solid-svg-icons';
+import {
+   faArrowRightFromBracket,
+   faBell,
+   faFileLines,
+   faGear,
+   faPenToSquare,
+   faUser,
+} from '@fortawesome/free-solid-svg-icons';
 import Button from '../../../components/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -28,59 +35,69 @@ const NavigationItems = [
       path: '/posts',
    },
    {
-      title: 'Về chúng tôi',
-      path: '/about',
+      title: 'Thảo luận',
+      path: '/discussions',
+   },
+   {
+      title: 'Hỏi đáp',
+      path: '/questions',
    },
 ];
 
 const AccountActionItems = [
    {
-      title: "Trang cá nhân",
+      title: 'Trang cá nhân',
       icon: faUser,
-      path: "/profile"
-   }, {
-      title: "Quản lý nội dung",
+      path: '/profile',
+   },
+   {
+      title: 'Quản lý nội dung',
       icon: faFileLines,
-      path: "/myposts"
+      path: '/myposts',
    },
    {
-      title: "Tuỳ chỉnh",
+      title: 'Tuỳ chỉnh',
       icon: faGear,
-      path: "/settings"
+      path: '/settings',
    },
    {
-      title: "Đăng xuất",
+      title: 'Đăng xuất',
       icon: faArrowRightFromBracket,
-      path: "/logout",
-      horizontal: true
-   }
-]
+      path: '/logout',
+      horizontal: true,
+   },
+];
 
-const NotifyData = [{
-   ID: '1',
-   TITLE: "Cao Quoc An đã bình luận bài viết của bạn",
-   TIME: "2022-10-2 10:20",
-   DESCRIPTION: "Bài viết tuyệt vời, quá hay, xuất sắc"
-}, {
-   ID: '2',
-   TITLE: "Cao Quoc An đã bình luận bài viết của bạn",
-   TIME: "2022-10-2 10:20",
-   DESCRIPTION: "Bài viết tuyệt vời, quá hay, xuất sắc"
-}, {
-   ID: '3',
-   TITLE: "Cao Quoc An đã bình luận bài viết của bạn",
-   TIME: "2022-10-2 10:20",
-   DESCRIPTION: "Bookmark là tính năng được các user sử dụng khi muốn lưu lại một bài viết hay của tác giả khác, thuận tiện cho quá trình tìm đọc lại sau này. Hành động tự Bookmark bài viết của mình không góp phần phản ánh chất lượng của bài viết, và thực chất không mang nhiều giá trị, do tác giả có thể tự xem lại bài viết trong phần Cá nhân => Quản lý nội dung. Ngoài ra, đội ngũ phát triển Viblo sẽ loại bỏ tính năng tự bookmark bài viết của mình trong thời gian tới."
-}]
+const NotifyData = [
+   {
+      ID: '1',
+      TITLE: 'Cao Quoc An đã bình luận bài viết của bạn',
+      TIME: '2022-10-2 10:20',
+      DESCRIPTION: 'Bài viết tuyệt vời, quá hay, xuất sắc',
+   },
+   {
+      ID: '2',
+      TITLE: 'Cao Quoc An đã bình luận bài viết của bạn',
+      TIME: '2022-10-2 10:20',
+      DESCRIPTION: 'Bài viết tuyệt vời, quá hay, xuất sắc',
+   },
+   {
+      ID: '3',
+      TITLE: 'Cao Quoc An đã bình luận bài viết của bạn',
+      TIME: '2022-10-2 10:20',
+      DESCRIPTION:
+         'Bookmark là tính năng được các user sử dụng khi muốn lưu lại một bài viết hay của tác giả khác, thuận tiện cho quá trình tìm đọc lại sau này. Hành động tự Bookmark bài viết của mình không góp phần phản ánh chất lượng của bài viết, và thực chất không mang nhiều giá trị, do tác giả có thể tự xem lại bài viết trong phần Cá nhân => Quản lý nội dung. Ngoài ra, đội ngũ phát triển Viblo sẽ loại bỏ tính năng tự bookmark bài viết của mình trong thời gian tới.',
+   },
+];
 
 function Header() {
-   const [Notifies, setNotifies] = useState([])
+   const [Notifies, setNotifies] = useState([]);
 
    useEffect(() => {
       setTimeout(() => {
-         setNotifies(NotifyData)
-      }, 4000)
-   }, [])
+         setNotifies(NotifyData);
+      }, 4000);
+   }, []);
 
    const isLogin = true;
 
@@ -106,26 +123,28 @@ function Header() {
                   <>
                      <HeadlessTippy
                         interactive
-                        trigger='click'
+                        trigger="click"
                         appendTo={document.body}
                         placement="top-end"
                         render={() => (
                            <div className={cx('notify')}>
                               <div className={cx('title')}>Thông báo</div>
                               <div className={cx('notify-container')}>
-                                 {Notifies.map((notify, index) => <Notify data={notify} key={index} />)}
+                                 {Notifies.length === 0 ? (
+                                    <div className={cx('empty')}>Không có thông báo</div>
+                                 ) : (
+                                    Notifies.map((notify, index) => <Notify data={notify} key={index} />)
+                                 )}
                               </div>
                               <button className={cx('notify-btn')}>Xem tất cả</button>
                            </div>
                         )}
                      >
-                        <Button primary className={cx('action-btn')} >
+                        <Button primary className={cx('action-btn')}>
                            <FontAwesomeIcon icon={faBell} />
                         </Button>
-
                      </HeadlessTippy>
                      <Tippy content="Viết bài">
-
                         <Button primary to="/publish/post" className={cx('action-btn')}>
                            <FontAwesomeIcon icon={faPenToSquare} />
                         </Button>
@@ -133,9 +152,9 @@ function Header() {
                      <HeadlessTippy
                         trigger="click"
                         interactive
-                        placement='top-end'
+                        placement="top-end"
                         render={() => (
-                           <div className={cx("menu")}>
+                           <div className={cx('menu')}>
                               {AccountActionItems.map((item, index) => (
                                  <AccountMenu data={item} key={index} />
                               ))}
