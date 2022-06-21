@@ -14,6 +14,7 @@ import WritePost from '../pages/WritePost'
 const publicRoutes = [
     {path: config.routes.home, component: Home},
     {path: config.routes.about, component: About},
+    {path: config.routes.postsType, component: Posts},
     {path: config.routes.posts, component: Posts},
     {path: config.routes.discussions, component: Discussions},
     {path: config.routes.questions, component: Questions},

@@ -1,0 +1,29 @@
+.wrapper {
+    margin-bottom: 40px;
+    background-color: var(--low-active-color);
+    height: 50px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    
+    .nav-container {
+        display: flex;
+        align-items: center;
+
+        .nav-link {
+            display: block;
+            font-weight: 600;
+            font-size: 1.6rem;
+            color: var(--white-color);
+            text-transform: uppercase;
+
+            & + .nav-link {
+                margin-left: 32px;
+            }
+
+            &.active {
+                border-bottom: 2px solid var(--white-color);
+            }
+        }
+    }
+}

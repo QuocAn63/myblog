@@ -2,6 +2,7 @@ const routes = {
     home: "/",
     about: "/about",
     posts: "/posts",
+    postsType: "/posts/:type",
     user: "/user/:ID",
     tag: "/tag/:ID",
     publish: "post/publish",
