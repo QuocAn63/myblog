@@ -1,5 +1,5 @@
-import React from 'react';
-
+import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom'
 import styles from './Sidebar.module.scss';
 import classNames from 'classnames/bind';
 import SidebarItem from './SidebarItem/SidebarItem';
@@ -52,11 +52,13 @@ const SidebarItems = [
 ];
 
 function Sidebar() {
+   const SidebarRef = useRef()
+
    return (
-      <div className={cx('wrapper')}>
+      <div className={cx('wrapper')} ref={SidebarRef}>
          {SidebarItems.map((item, index) => (
             <div className={cx('item')} key={index}>
-               <div className={cx('title')}>{item.TITLE}</div>
+               <Link to={item.PATH} className={cx('title')}>{item.TITLE}</Link>
                {item.DATA.map(data => (
                   <SidebarItem data={data} key={data.ID} />
                ))}

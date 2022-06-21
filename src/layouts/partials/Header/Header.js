@@ -90,9 +90,9 @@ const NotifyData = [
    },
 ];
 
-function Header() {
+function Header({ SearchOn = true }) {
    const [Notifies, setNotifies] = useState([]);
-
+   
    useEffect(() => {
       setTimeout(() => {
          setNotifies(NotifyData);
@@ -116,7 +116,7 @@ function Header() {
                ))}
             </div>
 
-            <Search />
+            {SearchOn && <Search />}
 
             <div className={cx('actions')}>
                {isLogin ? (

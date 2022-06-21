@@ -1,16 +1,10 @@
-
 .wrapper {
     margin-top: calc(var(--header-height) + 40px);
     display: flex;
     justify-content: center;
+    padding: 0 8px;
 }
 
 .container {
     width: var(--default-content-wide);
-    display: inline-flex;
-    padding: 0 8px;
-}
-
-.content {
-    width: calc(100% - var(--sidebar-width));
 }

@@ -6,6 +6,9 @@ const routes = {
     tag: "/tag/:ID",
     publish: "post/publish",
     post: "/post/:ID",
+    discussions: "/discussions",
+    questions: "/questions",
+    writePost: "/publish/post"
 }
 
 export default routes

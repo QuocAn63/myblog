@@ -1,0 +1,42 @@
+.wrapper {
+    position: relative;
+    padding: 40px 12px 20px;
+    border: 2px solid var(--low-active-color);
+    border-radius: 20px;
+
+    .title-link {
+        position: absolute;
+        top: -20px;
+        left: 20px;
+        color: var(--low-active-color);
+        font-size: 2rem;
+        font-weight: 700;
+        text-transform: capitalize;
+        background-color: var(--white-color);
+        padding: 4px 16px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .more-post {
+        margin-top: 20px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        a {
+            color: var(--active-color);
+            font-size: 1.7rem;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }   
+    }
+
+    & + .wrapper {
+        margin-top: 100px;
+    }
+}

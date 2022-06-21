@@ -10,12 +10,15 @@
    --account-menu-width: 220px;
    --notify-menu-width: 320px;
    --search-button-width: 42px;
+   --sidebar-width: 280px;
 
    // Colors
    --white-color: #fff;
    --text-color: #1b1b1b;
    --active-color: #0c4a97;
    --gray-color: #9b9b9b;
+   --low-gray-color: #e5e5e5;
+   --low-active-color: #0c4a9779;
 }
 
 * {
@@ -38,6 +41,12 @@ body {
 a {
    text-decoration: none;
    color: var(--text-color);
+}
+
+ul {
+   padding: 0;
+   display: block;
+   list-style-type: none;
 }
 
 ::-webkit-scrollbar {

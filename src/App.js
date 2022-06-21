@@ -13,7 +13,7 @@ function App() {
             const Page = route.component;
 
             return (
-              <Route key={index} path={route.path} element={<Layout><Page /></Layout>} />
+              <Route key={index} path={route.path} element={<Layout SearchOn={route.SearchOn}><Page /></Layout>} />
             )
           })}
         </Routes>
