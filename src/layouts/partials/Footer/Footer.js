@@ -49,13 +49,13 @@ function Footer() {
                   <div className={cx('footer-item')}>
                      <div className={cx('title')}>Mạng xã hội</div>
                      <div className={cx('socials')}>
-                        <a href="https://www.facebook.com/quocan.6302/" target="_blank" className={cx('social-link')}>
+                        <a href="https://www.facebook.com/quocan.6302/" target="_blank" rel="noreferrer" className={cx('social-link')}>
                            <FontAwesomeIcon icon={faFacebook} /> <span>Facebook</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/%C3%A2n-cao-921b68242/" target="_blank" className={cx('social-link')}>
+                        <a href="https://www.linkedin.com/in/%C3%A2n-cao-921b68242/" target="_blank" rel="noreferrer" className={cx('social-link')}>
                            <FontAwesomeIcon icon={faLinkedin} /> <span>Linkedin</span>
                         </a>
-                        <a href="https://twitter.com/nCao15" target="_blank" className={cx('social-link')}>
+                        <a href="https://twitter.com/nCao15" target="_blank" rel="noreferrer" className={cx('social-link')}>
                           <FontAwesomeIcon icon={faTwitter} /> <span>Twitter</span>
                         </a>
                      </div>

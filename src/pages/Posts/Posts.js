@@ -5,6 +5,7 @@ import classNames from 'classnames/bind';
 import PostItem from '../../components/PostItem';
 import { useEffect, useState } from 'react';
 import PostFilter from '../../components/PostFilter';
+import Paginate from '../../components/Paginate/Paginate';
 
 const cx = classNames.bind(styles);
 
@@ -56,6 +57,7 @@ function Posts() {
                <PostItem data={PostData} key={index} />
             ))}
          </div>
+         <Paginate currentPage={7} totalPage={20} className={cx('page')} activeClassName={cx('active')} />
       </div>
    );
 }
