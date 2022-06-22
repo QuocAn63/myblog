@@ -10,7 +10,7 @@ const routes = {
     discussions: "/discussions",
     questions: "/questions",
     questionsType: "/questions/:type",
-    writePost: "/publish/post"
+    publishPost: "/publish/post"
 }
 
 export default routes

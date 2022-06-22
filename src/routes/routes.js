@@ -10,7 +10,7 @@ import About from '../pages/About'
 import Posts from '../pages/Posts'
 import Discussions from '../pages/Discussions'
 import Questions from '../pages/Questions'
-import WritePost from '../pages/WritePost'
+import PublishPost from '../pages/PublishPost'
 
 const publicRoutes = [
     {path: config.routes.home, component: Home},
@@ -20,7 +20,7 @@ const publicRoutes = [
     {path: config.routes.questionsType, component: Questions},
     {path: config.routes.questions, component: () => <Navigate  to="/questions/newest" replace />},
     {path: config.routes.discussions, component: Discussions},
-    {path: config.routes.writePost, component: WritePost, layout: HeaderOnly, SearchOn: false},
+    {path: config.routes.publishPost, component: PublishPost, layout: HeaderOnly, SearchOn: false},
 ]
 
 const privateRoutes = [

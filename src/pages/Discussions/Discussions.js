@@ -2,7 +2,7 @@ import React from 'react'
 
 function Discussions() {
   return (
-    <div>Discussions</div>
+    <div>Developing</div>
   )
 }
 
