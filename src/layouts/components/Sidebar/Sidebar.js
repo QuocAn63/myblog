@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styles from './Sidebar.module.scss';
 import classNames from 'classnames/bind';
 import SidebarItem from './SidebarItem/SidebarItem';
+import AuthorTab from '../../../components/AuthorTab/AuthorTab';
 
 const cx = classNames.bind(styles);
 
@@ -48,8 +49,46 @@ const SidebarItems = [
             AUTHOR: 'Cao Quoc An',
          },
       ],
-   },
+   }
 ];
+
+const TopAuthors = [ {
+   AUTHOR: {
+      ID: '1',
+      FULL_NAME: "CAO QUOC AN",
+      AVATAR: ""
+   },
+   META: {
+      RATING: 0,
+      POSTS: 0,
+      FOLLOWING: 0
+   }
+},
+{
+   AUTHOR: {
+      ID: '2',
+      FULL_NAME: "CAO QUOC AN",
+      AVATAR: ""
+   },
+   META: {
+      RATING: 0,
+      POSTS: 0,
+      FOLLOWING: 0
+   }
+},
+{
+   AUTHOR: {
+      ID: '3',
+      FULL_NAME: "CAO QUOC AN",
+      AVATAR: ""
+   },
+   META: {
+      RATING: 0,
+      POSTS: 0,
+      FOLLOWING: 0
+   }
+}
+]
 
 function Sidebar() {
    const SidebarRef = useRef()
@@ -64,6 +103,12 @@ function Sidebar() {
                ))}
             </div>
          ))}
+         <div className={cx('item')}>
+               <Link to="/authors/top" className={cx('title')}>tác giả hàng đầu</Link>
+                  {TopAuthors.map(author => (
+                     <AuthorTab data={author} />
+                  ))}
+            </div>
       </div>
    );
 }

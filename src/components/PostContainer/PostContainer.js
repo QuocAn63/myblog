@@ -33,10 +33,10 @@ const PostData = {
     ]
 }
 
-function PostContainer({ data }) {
+function PostContainer({ title, data }) {
     return (
         <div className={cx('wrapper')}>
-            <Link to={'/posts/newest'} className={cx("title-link")}>Bài viết mới nhất</Link>
+            <Link to={'/posts/newest'} className={cx("title-link")}>{title}</Link>
             <div className="container">
                 <PostItem data={PostData} />
                 <PostItem data={PostData} />

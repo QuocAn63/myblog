@@ -1,0 +1,36 @@
+.wrapper {
+    padding: 8px;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+
+    .avatar-link {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: block;
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+    }
+
+    .author-name {
+        margin-left: 16px;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--active-color);
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.meta-container {
+    padding: 8px 0 0 0;
+}
