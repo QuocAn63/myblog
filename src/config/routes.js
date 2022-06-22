@@ -9,6 +9,7 @@ const routes = {
     post: "/post/:ID",
     discussions: "/discussions",
     questions: "/questions",
+    questionsType: "/questions/:type",
     writePost: "/publish/post"
 }
 

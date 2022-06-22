@@ -17,8 +17,9 @@ const publicRoutes = [
     {path: config.routes.about, component: About},
     {path: config.routes.postsType, component: Posts},
     {path: config.routes.posts, component: () => <Navigate  to="/posts/newest" replace />},
+    {path: config.routes.questionsType, component: Questions},
+    {path: config.routes.questions, component: () => <Navigate  to="/questions/newest" replace />},
     {path: config.routes.discussions, component: Discussions},
-    {path: config.routes.questions, component: Questions},
     {path: config.routes.writePost, component: WritePost, layout: HeaderOnly, SearchOn: false},
 ]
 

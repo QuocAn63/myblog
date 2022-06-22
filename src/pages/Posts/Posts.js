@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 
 import PostItem from '../../components/PostItem';
 import { useEffect, useState } from 'react';
-import PostFilter from '../../components/PostFilter';
+import Filter from '../../components/Filter';
 import Paginate from '../../components/Paginate/Paginate';
 
 const cx = classNames.bind(styles);
@@ -34,30 +34,49 @@ const PostData = {
    ],
 };
 
+const filters = [{
+   TITLE: 'Mới nhất',
+   PATH: 'newest',
+}, {
+   TITLE: 'Quan tâm nhiều nhất',
+   PATH: 'popular',
+}, {
+   TITLE: 'Series',
+   PATH: 'series',
+}]
+
 function Posts() {
    const [posts, setPosts] = useState([]);
+   const [loading, setLoading] = useState(false);
    const location = useLocation()
 
    useEffect(() => {
+      setLoading(true);
+
       setTimeout(() => {
          const fakeArray = [];
          for (let i = 0; i <= 20; i++) {
             fakeArray.push(i);
          }
          setPosts(fakeArray);
+         setLoading(false);
       }, 2000);
-      
+
    }, [location.pathname]);
 
    return (
       <div className={cx('wrapper')}>
-         <PostFilter />
-         <div className={cx('content')}>
-            {posts.map((post, index) => (
-               <PostItem data={PostData} key={index} />
-            ))}
-         </div>
-         <Paginate currentPage={7} totalPage={20} className={cx('page')} activeClassName={cx('active')} />
+         <Filter rootPath={'/posts'} filters={filters} />
+         {!loading && (
+            <>
+               <div className={cx('content')}>
+                  {posts.map((post, index) => (
+                     <PostItem data={PostData} key={index} />
+                  ))}
+               </div>
+               <Paginate currentPage={9} totalPage={15} className={cx('page')} />
+            </>
+         )}
       </div>
    );
 }

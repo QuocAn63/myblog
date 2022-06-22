@@ -35,12 +35,12 @@ const NavigationItems = [
       path: '/posts',
    },
    {
-      title: 'Thảo luận',
-      path: '/discussions',
-   },
-   {
       title: 'Hỏi đáp',
       path: '/questions',
+   },
+   {
+      title: 'Thảo luận',
+      path: '/discussions',
    },
 ];
 

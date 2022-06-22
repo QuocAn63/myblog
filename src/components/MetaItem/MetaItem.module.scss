@@ -1,0 +1,15 @@
+.wrapper {
+   display: inline-flex;
+   align-items: center;
+   gap: 6px;
+   color: var(--gray-color);
+   font-size: 1.4rem;
+
+   .value {
+    line-height: 1.4rem;
+   }
+
+   & + .wrapper {
+    margin-left: 20px;
+   }
+}
