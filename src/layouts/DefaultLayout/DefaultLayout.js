@@ -9,10 +9,10 @@ import Sidebar from '../../layouts/components/Sidebar';
 
 const cx = classNames.bind(styles);
 
-function DefaultLayout({ children, SearchOn }) {
+function DefaultLayout({ children, WideScreen, SearchOn }) {
    return (
       <>
-         <Header SearchOn={SearchOn} />
+         <Header SearchOn={SearchOn} WideScreen={WideScreen}/>
          <div className={cx('wrapper')}>
             <div className={cx('container')}>
                <div className={cx('content')}>{children}</div>

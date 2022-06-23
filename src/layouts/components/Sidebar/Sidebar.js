@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { memo } from 'react';
 import { Link } from 'react-router-dom'
 import styles from './Sidebar.module.scss';
 import classNames from 'classnames/bind';
@@ -91,10 +91,9 @@ const TopAuthors = [ {
 ]
 
 function Sidebar() {
-   const SidebarRef = useRef()
 
    return (
-      <div className={cx('wrapper')} ref={SidebarRef}>
+      <div className={cx('wrapper')}>
          {SidebarItems.map((item, index) => (
             <div className={cx('item')} key={index}>
                <Link to={item.PATH} className={cx('title')}>{item.TITLE}</Link>
@@ -105,12 +104,12 @@ function Sidebar() {
          ))}
          <div className={cx('item')}>
                <Link to="/authors/top" className={cx('title')}>tác giả hàng đầu</Link>
-                  {TopAuthors.map(author => (
-                     <AuthorTab data={author} />
+                  {TopAuthors.map((author, index) => (
+                     <AuthorTab data={author} key={index} />
                   ))}
             </div>
       </div>
    );
 }
 
-export default Sidebar;
+export default memo(Sidebar);

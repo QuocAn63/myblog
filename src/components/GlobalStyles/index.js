@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 
+import './GlobalStyles.css'
 import './GlobalStyles.scss'
 
 function GlobalStyle({ children }) {

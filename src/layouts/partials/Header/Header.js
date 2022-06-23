@@ -90,7 +90,7 @@ const NotifyData = [
    },
 ];
 
-function Header({ SearchOn = true }) {
+function Header({ WideScreen = false, SearchOn = true }) {
    const [Notifies, setNotifies] = useState([]);
    
    useEffect(() => {
@@ -101,9 +101,11 @@ function Header({ SearchOn = true }) {
 
    const isLogin = true;
 
+   const innerStyle = WideScreen ? cx('inner-wrapper', 'wide') : cx('inner-wrapper')
+
    return (
       <div className={cx('wrapper')}>
-         <div className={cx('inner-wrapper')}>
+         <div className={innerStyle}>
             <div className={cx('site-navigation')}>
                {NavigationItems.map((item, index) => (
                   <NavLink
