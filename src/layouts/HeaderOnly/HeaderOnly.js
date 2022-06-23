@@ -7,19 +7,17 @@ import classNames from 'classnames/bind'
 
 const cx = classNames.bind(styles)
 
-function HeaderOnly({ children, SearchOn }) {
+function HeaderOnly({ children, WideScreen, SearchOn }) {
   return (
     <>
-      <Header SearchOn={SearchOn} />
+      <Header SearchOn={SearchOn} WideScreen={WideScreen}/>
       <div className={cx('wrapper')}>
-        <div className={cx('container')}>
-          {children}
-        </div>
+        {children}
       </div>
     </>
   )
 }
 
-HeaderOnly.propTypes = { children: PropTypes.node.isRequired, Searchable: PropTypes.bool}
+HeaderOnly.propTypes = { children: PropTypes.node.isRequired, Searchable: PropTypes.bool }
 
 export default HeaderOnly
