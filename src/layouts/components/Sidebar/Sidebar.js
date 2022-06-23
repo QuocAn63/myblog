@@ -105,7 +105,7 @@ function Sidebar() {
          <div className={cx('item')}>
                <Link to="/authors/top" className={cx('title')}>tác giả hàng đầu</Link>
                   {TopAuthors.map((author, index) => (
-                     <AuthorTab data={author} key={index} />
+                     <AuthorTab ID={author.AUTHOR.ID} AVATAR={author.AUTHOR.AVATAR} FULL_NAME={author.AUTHOR.FULL_NAME} POSTS={author.META.POSTS}  RATING={author.META.RATING} FOLLOWING={author.META.FOLLOWING} key={index} />
                   ))}
             </div>
       </div>

@@ -1,0 +1,22 @@
+.wrapper {
+    padding: 8px 0;
+}
+
+.post-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.meta-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .container {
+        & + .container {
+            margin-top: 8px;
+        }
+    }
+}

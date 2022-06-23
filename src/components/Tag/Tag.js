@@ -6,17 +6,18 @@ import classNames from 'classnames/bind'
 
 const cx = classNames.bind(styles)
 
-function Tag({ data }) {
+function Tag({ id, title }) {
 
   return (
-    <Link to={`/tag/${data.ID}`} className={cx('wrapper')}>
-        <span className={cx('title')}>{data.TITLE}</span>
+    <Link to={`/tag/${id}`} className={cx('wrapper')}>
+        <span className={cx('title')}>{title}</span>
     </Link>
   )
 }
 
 Tag.propTypes = {
-    data: PropTypes.object.isRequired
+  id: PropTypes.string,
+  title: PropTypes.string.isRequired
 }
 
 export default Tag

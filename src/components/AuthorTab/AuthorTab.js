@@ -9,26 +9,33 @@ import MetaItem from '../MetaItem';
 
 const cx = classNames.bind(styles);
 
-function AuthorTab({ data }) {
+function AuthorTab({ ID, AVATAR, FULL_NAME, RATING, POSTS, FOLLOWING }) {
    return (
       <div className={cx('wrapper')}>
          <div className={cx('author')}>
-            <Link to={`/author/${data.AUTHOR.ID}`} className={cx('avatar-link')}>
-               <Image src={data.AUTHOR.AVATAR} className={cx('avatar')} />
+            <Link to={`/author/${ID}`} className={cx('avatar-link')}>
+               <Image src={AVATAR} className={cx('avatar')} />
             </Link>
-            <Link to={`/author/${data.AUTHOR.ID}`} className={cx('author-name')}>{data.AUTHOR.FULL_NAME}</Link>
+            <Link to={`/author/${ID}`} className={cx('author-name')}>
+               {FULL_NAME}
+            </Link>
          </div>
          <div className={cx('meta-container')}>
-            <MetaItem icon={faStar} value={data.META.RATING} content={`Độ nổi tiếng: ${data.META.RATING}`} />
-            <MetaItem icon={faPen} value={data.META.POSTS} content={`Số bài viết: ${data.META.POSTS}`} />
-            <MetaItem icon={faUserPlus} value={data.META.FOLLOWING} content={`Người theo dõi: ${data.META.FOLLOWING}`} />
+            <MetaItem icon={faStar} value={RATING} content={`Độ nổi tiếng: ${RATING}`} />
+            <MetaItem icon={faPen} value={POSTS} content={`Số bài viết: ${POSTS}`} />
+            <MetaItem icon={faUserPlus} value={FOLLOWING} content={`Người theo dõi: ${FOLLOWING}`} />
          </div>
       </div>
    );
 }
 
 AuthorTab.propTypes = {
-   data: PropTypes.object.isRequired,
+   ID: PropTypes.string,
+   AVATAR: PropTypes.string,
+   FULL_NAME: PropTypes.string,
+   RATING: PropTypes.number,
+   POSTS: PropTypes.number,
+   FOLLOWING: PropTypes.number,
 };
 
 export default AuthorTab;

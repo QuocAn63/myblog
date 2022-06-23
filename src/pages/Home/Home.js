@@ -9,9 +9,9 @@ const cx = classNames.bind(styles);
 function Home() {
    return (
       <div className={cx('wrapper')}>
-         <PostContainer title={'Bài viết mới nhất'} />
-         <PostContainer title={'Bài viết nổi bậc'} />
-         <PostContainer title={'Câu hỏi mới nhất'} />
+         <PostContainer title={'Bài viết mới nhất'} data={{}} />
+         <PostContainer title={'Bài viết nổi bậc'}  data={{}}/>
+         <PostContainer title={'Câu hỏi mới nhất'}  data={{}}/>
       </div>
    );
 }
