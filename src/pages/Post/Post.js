@@ -1,12 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './Post.module.scss';
 import classNames from 'classnames/bind';
-
+import SideComment from '../../layouts/components/SideComment';
 import { faEye, faComment, faBookmark } from '@fortawesome/free-solid-svg-icons';
 
+import UserComment from '../../layouts/components/SideComment/UserComment';
 import AuthorTag from '../../components/AuthorTab';
 import MetaItem from '../../components/MetaItem';
-import Tag from '../../components/Tag'
+import Tag from '../../components/Tag';
 
 const cx = classNames.bind(styles);
 
@@ -49,54 +50,85 @@ const POST_DATA = {
    },
 };
 
+const USER = {
+   ID: '1',
+   FULL_NAME: 'Cao Quoc An',
+   AVATAR: '',
+};
+
 function Post() {
-   const ContentRef = useRef()
+   const [loading, setLoading] = useState(false);
+   const ContentRef = useRef();
 
    useEffect(() => {
+      setLoading(true);
       setTimeout(() => {
-         ContentRef.current.innerHTML = POST_DATA.CONTENT
-      }, 1000)
-   }, [])
+         ContentRef.current.innerHTML = POST_DATA.CONTENT;
+      }, 1000);
+      setLoading(false);
+   }, []);
 
    return (
       <div className={cx('wrapper')}>
-         <div className={cx('post-info')}>
-            <div className={cx('author')}>
-               <AuthorTag
-                  ID={AUTHOR_DATA.AUTHOR.ID}
-                  AVATAR={AUTHOR_DATA.AUTHOR.AVATAR}
-                  FULL_NAME={AUTHOR_DATA.AUTHOR.FULL_NAME}
-                  POSTS={AUTHOR_DATA.META.POSTS}
-                  RATING={AUTHOR_DATA.META.RATING}
-                  FOLLOWING={AUTHOR_DATA.META.FOLLOWING}
-               />
-            </div>
-            <div className={cx('meta-container')}>
-               <div className={cx('container')}>
-                  <MetaItem value={`Đã đăng vào: ${POST_DATA.META.TIME}`} />
+         {!loading && (
+            <>
+               <div className={cx('post-info')}>
+                  <div className={cx('author')}>
+                     <AuthorTag
+                        ID={AUTHOR_DATA.AUTHOR.ID}
+                        AVATAR={AUTHOR_DATA.AUTHOR.AVATAR}
+                        FULL_NAME={AUTHOR_DATA.AUTHOR.FULL_NAME}
+                        POSTS={AUTHOR_DATA.META.POSTS}
+                        RATING={AUTHOR_DATA.META.RATING}
+                        FOLLOWING={AUTHOR_DATA.META.FOLLOWING}
+                     />
+                  </div>
+                  <div className={cx('meta-container')}>
+                     <div className={cx('container')}>
+                        <MetaItem value={`Đã đăng vào: ${POST_DATA.META.TIME}`} />
+                     </div>
+                     <div className={cx('container')}>
+                        <MetaItem
+                           icon={faEye}
+                           value={POST_DATA.META.VIEWS}
+                           content={`Lượt xem: ${POST_DATA.META.VIEWS}`}
+                        />
+                        <MetaItem
+                           icon={faComment}
+                           value={POST_DATA.META.COMMENTS}
+                           content={`Bình luận: ${POST_DATA.META.VIEWS}`}
+                        />
+                        <MetaItem
+                           icon={faBookmark}
+                           value={POST_DATA.META.BOOKMARKS}
+                           content={`Bookmarks: ${POST_DATA.META.VIEWS}`}
+                        />
+                     </div>
+                  </div>
                </div>
-               <div className={cx('container')}>
-                  <MetaItem icon={faEye} value={POST_DATA.META.VIEWS} content={`Lượt xem: ${POST_DATA.META.VIEWS}`} />
-                  <MetaItem
-                     icon={faComment}
-                     value={POST_DATA.META.COMMENTS}
-                     content={`Bình luận: ${POST_DATA.META.VIEWS}`}
-                  />
-                  <MetaItem
-                     icon={faBookmark}
-                     value={POST_DATA.META.BOOKMARKS}
-                     content={`Bookmarks: ${POST_DATA.META.VIEWS}`}
-                  />
+               <div className={cx('content')}>
+                  <h1 className={cx('content-title')}>{POST_DATA.TITLE}</h1>
+                  <div className={cx('content-area')} ref={ContentRef}></div>
+                  <div className={cx('tags')}>
+                     {POST_DATA.TAGS.map((tag, index) => (
+                        <Tag id={tag.ID} title={tag.TITLE} key={index} />
+                     ))}
+                  </div>
                </div>
-            </div>
-         </div>
-         <div className={cx('content')}>
-            <h1 className={cx('content-title')}>{POST_DATA.TITLE}</h1>
-            <div className={cx('content-area')}  ref={ContentRef}></div>
-            <div className={cx('tags')}>
-               {POST_DATA.TAGS.map(tag => <Tag id={tag.ID} title={tag.TITLE} />)}
-            </div>
-         </div>
+               <div className={cx('comment-side')}>
+                  <h3 className={cx('title')}>Bình luận</h3>
+                  <div className={cx('comment-wrapper')}>
+                     <UserComment user={USER} />
+                  </div>
+                  <div className={cx('comment-wrapper')}>
+                     <SideComment />
+                  </div>
+                  <div className={cx('comment-wrapper')}>
+                     <SideComment />
+                  </div>
+               </div>
+            </>
+         )}
       </div>
    );
 }

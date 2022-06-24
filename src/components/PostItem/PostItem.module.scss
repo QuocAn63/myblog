@@ -57,21 +57,6 @@
 
         .footer {
             margin-top: 16px;
-
-            .meta {
-                display: flex;
-                align-items: center;
-                gap: 16px;
-
-                .meta-item {
-                    font-size: 1.4rem;
-                    color: var(--gray-color);
-
-                    .amount {
-                        margin-left: 4px;
-                    }
-                }
-            }
         }
     }
 

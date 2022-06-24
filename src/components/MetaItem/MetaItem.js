@@ -10,31 +10,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const cx = classNames.bind(styles);
 
-const Item = forwardRef(({ icon, value, classNames, to, onClick, ...passProps }, ref) => {
-   var Comp = 'div';
+const Item = forwardRef(({ icon, value, className, to, onClick, ...passProps }, ref) => {
+   let Comp = 'div';
    const props = { onClick, ...passProps };
 
    if (to) {
-      props.to = to; 
-      Comp = Link
+      props.to = to;
+      Comp = Link;
    }
 
+   const pointer = to || onClick ? 'pointer' : null;
+
    return (
-      <Comp ref={ref} className={cx('wrapper', { ...classNames })} {...props}>
+      <Comp ref={ref} className={cx('wrapper', pointer, { [className]: className })} {...props}>
          {icon && <FontAwesomeIcon icon={icon} />}
          <span className={cx('value')}>{value}</span>
       </Comp>
    );
 });
 
-function MetaItem({ icon, content, value, classNames, to, onClick, ...passProps }) {
+function MetaItem({ icon, content, value, className, to, onClick, ...passProps }) {
    const props = {
       icon,
       value,
-      classNames,
+      className,
       to,
       onClick,
-      ...passProps
+      ...passProps,
    };
 
    return content !== undefined ? (

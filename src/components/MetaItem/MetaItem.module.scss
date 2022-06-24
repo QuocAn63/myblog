@@ -12,4 +12,8 @@
    & + .wrapper {
     margin-left: 20px;
    }
+
+   &.pointer {
+      cursor: pointer;
+   }
 }

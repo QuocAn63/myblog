@@ -40,7 +40,7 @@ function QuestionItem({ data }) {
                <Link to={`/question/${data.ID}`} className={cx('title-link')}>{data.TITLE}</Link>
                <div className={cx('tags')}>
                   {data.TAGS.map((tag, index) => (
-                     <Tag data={tag} key={index} />
+                     <Tag title={tag.TITLE} id={tag.ID}  key={index} />
                   ))}
                </div>
             </div>
