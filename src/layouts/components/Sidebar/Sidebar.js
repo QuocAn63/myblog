@@ -15,17 +15,47 @@ const SidebarItems = [
          {
             ID: '1',
             TITLE: 'Làm thế nào để thay đổi style của các hình (polygon, polyline) khi thực hiện edit trên react-leaflet-draw ?',
-            AUTHOR: 'Cao Quoc An',
+            AUTHOR: {
+               ID: '1',
+               AVATAR: '',
+               FULL_NAME: 'Cao Quoc An'
+            },
+            META: {
+               LIKE: 0,
+               REPLY: 0,
+               VIEW: 0,
+               COMMENT: 0 
+            }
          },
          {
             ID: '2',
             TITLE: 'Làm thế nào để thay đổi style của các hình (polygon, polyline) khi thực hiện edit trên react-leaflet-draw ?',
-            AUTHOR: 'Cao Quoc An',
+            AUTHOR: {
+               ID: '1',
+               AVATAR: '',
+               FULL_NAME: 'Cao Quoc An'
+            },
+            META: {
+               LIKE: 0,
+               REPLY: 0,
+               VIEW: 0,
+               COMMENT: 0 
+            }
          },
          {
             ID: '3',
             TITLE: 'Làm thế nào để thay đổi style của các hình (polygon, polyline) khi thực hiện edit trên react-leaflet-draw ?',
-            AUTHOR: 'Cao Quoc An',
+            AUTHOR: {
+               ID: '1',
+               AVATAR: '',
+               FULL_NAME: 'Cao Quoc An'
+            },
+            META: {
+               LIKE: 0,
+               REPLY: 0,
+               VIEW: 0,
+               COMMENT: 0 
+            }
          },
       ],
    },
@@ -36,17 +66,47 @@ const SidebarItems = [
          {
             ID: '1',
             TITLE: 'Làm thế nào để thay đổi style của các hình (polygon, polyline) khi thực hiện edit trên react-leaflet-draw ?',
-            AUTHOR: 'Cao Quoc An',
+            AUTHOR: {
+               ID: '1',
+               AVATAR: '',
+               FULL_NAME: 'Cao Quoc An'
+            },
+            META: {
+               LIKE: 0,
+               REPLY: 0,
+               VIEW: 0,
+               COMMENT: 0 
+            }
          },
          {
             ID: '2',
             TITLE: 'Làm thế nào để thay đổi style của các hình (polygon, polyline) khi thực hiện edit trên react-leaflet-draw ?',
-            AUTHOR: 'Cao Quoc An',
+            AUTHOR: {
+               ID: '1',
+               AVATAR: '',
+               FULL_NAME: 'Cao Quoc An'
+            },
+            META: {
+               LIKE: 0,
+               REPLY: 0,
+               VIEW: 0,
+               COMMENT: 0 
+            }
          },
          {
             ID: '3',
             TITLE: 'Làm thế nào để thay đổi style của các hình (polygon, polyline) khi thực hiện edit trên react-leaflet-draw ?',
-            AUTHOR: 'Cao Quoc An',
+            AUTHOR: {
+               ID: '1',
+               AVATAR: '',
+               FULL_NAME: 'Cao Quoc An'
+            },
+            META: {
+               LIKE: 0,
+               REPLY: 0,
+               VIEW: 0,
+               COMMENT: 0 
+            }
          },
       ],
    }

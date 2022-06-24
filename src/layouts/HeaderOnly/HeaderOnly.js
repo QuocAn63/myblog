@@ -7,10 +7,10 @@ import classNames from 'classnames/bind'
 
 const cx = classNames.bind(styles)
 
-function HeaderOnly({ children, WideScreen, SearchOn }) {
+function HeaderOnly({ children, ...props }) {
   return (
     <>
-      <Header SearchOn={SearchOn} WideScreen={WideScreen}/>
+      <Header {...props}/>
       <div className={cx('wrapper')}>
         {children}
       </div>

@@ -17,6 +17,10 @@
             color: rgba(0, 0, 0, 0.5);
             font-size: 1.4rem;
             line-height: 1.5rem;
+
+            &:hover {
+                color: rgba(0, 0, 0, 0.7);
+            }
         }
     }
 

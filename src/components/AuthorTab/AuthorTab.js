@@ -13,10 +13,10 @@ function AuthorTab({ ID, AVATAR, FULL_NAME, RATING, POSTS, FOLLOWING }) {
    return (
       <div className={cx('wrapper')}>
          <div className={cx('author')}>
-            <Link to={`/author/${ID}`} className={cx('avatar-link')}>
+            <Link to={`/user/${ID}`} className={cx('avatar-link')}>
                <Image src={AVATAR} className={cx('avatar')} />
             </Link>
-            <Link to={`/author/${ID}`} className={cx('author-name')}>
+            <Link to={`/user/${ID}`} className={cx('author-name')}>
                {FULL_NAME}
             </Link>
          </div>
