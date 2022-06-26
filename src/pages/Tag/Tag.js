@@ -1,7 +1,7 @@
 import styles from './Tag.module.scss';
 import classNames from 'classnames/bind';
 import Button from '../../components/Button/Button';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { TagSidebar } from '../../layouts/components/Sidebar';
 import CustomFilter from '../../components/Filter/CustomFilter';
 import PostItem from '../../components/PostItem';
@@ -123,17 +123,17 @@ const FilterItems = [
 ];
 
 function Tag() {
-   const rootPath = '/tag/1';
+   const rootPath = '/tag/3';
 
    return (
       <div className={cx('wrapper')}>
          <div className={cx('tag-about')}>
             <p className={cx('tag-name')}>Javascript</p>
-            <div className={'actions'}>
-               <Button leftIcon={faPlus} outline className={cx('follow-btn')}>
+            <div className={cx('actions')}>
+               <Button leftIcon={faPlus} outline className={cx('action-btn')}>
                   Theo dõi
                </Button>
-               <Button leftIcon={faPlus} primary className={cx('follow-btn')}>
+               <Button leftIcon={faCheck} primary className={cx('action-btn')}>
                   Đang theo dõi
                </Button>
             </div>
@@ -141,15 +141,15 @@ function Tag() {
          <div className={cx('container')}>
             <div className={cx('content')}>
                <div className={cx('filters')}>
-                  <CustomFilter filters={FilterItems} rootPath={rootPath} />
+                  <CustomFilter filters={FilterItems} rootPath={rootPath} defaultPath='posts' />
                </div>
                <div className={cx('main-content')}>
-                  {Posts.map((post) => (
-                     <PostItem data={post} />
+                  {Posts.map((post, index) => (
+                     <PostItem data={post} key={index} />
                   ))}
                </div>
             </div>
-            <TagSidebar />
+            <TagSidebar /> 
          </div>
       </div>
    );

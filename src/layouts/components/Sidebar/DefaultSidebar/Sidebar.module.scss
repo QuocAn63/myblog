@@ -20,6 +20,7 @@
         bottom: 80%;
         left: 70%;
         right: -14px;
+        z-index: -1;
     }
 
     &::before {
@@ -33,6 +34,7 @@
         bottom: 0;
         left: -14px;
         right: 70%;
+        z-index: -1;
     }
 
     .title {
