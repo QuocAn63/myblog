@@ -1,0 +1,34 @@
+.wrapper {
+  height: auto;
+  margin-left: 20px;
+  width: var(--sidebar-width);
+  border: 1px solid var(--low-gray-color);
+}
+
+.container {
+  padding: 16px;
+}
+
+.item-link {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.5rem;
+
+  .title {
+    color: var(--gray-color);
+  }
+
+  .value {
+    color: var(--text-color);
+    font-weight: 700;
+  }
+
+  & + .item-link {
+    margin-top: 8px;
+  }
+
+  &:hover .value {
+    color: var(--active-color);
+  }
+}

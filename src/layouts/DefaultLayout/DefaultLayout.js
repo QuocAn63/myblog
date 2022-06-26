@@ -5,18 +5,30 @@ import classNames from 'classnames/bind';
 
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
-import Sidebar from '../../layouts/components/Sidebar';
+import DefaultSidebar, { UserSidebar, TagSidebar } from '../../layouts/components/Sidebar';
 
 const cx = classNames.bind(styles);
 
-function DefaultLayout({ children, ...props }) {
+function DefaultLayout({ children, Sidebar, ...props }) {
+   let SidebarComp = '';
+   switch (Sidebar) {
+      case 'user':
+         SidebarComp = UserSidebar;
+         break;
+      case 'tag':
+         SidebarComp = TagSidebar;
+         break;
+      default:
+         SidebarComp = DefaultSidebar;
+   }
+
    return (
       <>
-         <Header {...props}/>
+         <Header {...props} />
          <div className={cx('wrapper')}>
             <div className={cx('container')}>
                <div className={cx('content')}>{children}</div>
-               <Sidebar />
+               <SidebarComp />
             </div>
          </div>
          <Footer />

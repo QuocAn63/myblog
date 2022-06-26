@@ -92,7 +92,7 @@ const NotifyData = [
 
 function Header({ WideScreen = false, SearchOn = true }) {
    const [Notifies, setNotifies] = useState([]);
-   
+
    useEffect(() => {
       setTimeout(() => {
          setNotifies(NotifyData);
@@ -101,7 +101,7 @@ function Header({ WideScreen = false, SearchOn = true }) {
 
    const isLogin = true;
 
-   const innerStyle = WideScreen ? cx('inner-wrapper', 'wide') : cx('inner-wrapper')
+   const innerStyle = WideScreen ? cx('inner-wrapper', 'wide') : cx('inner-wrapper');
 
    return (
       <div className={cx('wrapper')}>

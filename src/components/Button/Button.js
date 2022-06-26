@@ -2,33 +2,36 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import styles from './Button.module.scss'
+import styles from './Button.module.scss';
 import classNames from 'classnames/bind';
 import { forwardRef } from 'react';
 
-const cx = classNames.bind(styles)
+const cx = classNames.bind(styles);
 
-function Button({
-   disabled = false,
-   to,
-   href,
-   primary,
-   outline,
-   small = false,
-   large = false,
-   text = false,
-   rounded = false,
-   className,
-   children,
-   onClick,
-   leftIcon,
-   rightIcon,
-   ...passProps
-}, ref) {
+function Button(
+   {
+      disabled = false,
+      to,
+      href,
+      primary,
+      outline,
+      small = false,
+      large = false,
+      text = false,
+      rounded = false,
+      className,
+      children,
+      onClick,
+      leftIcon,
+      rightIcon,
+      ...passProps
+   },
+   ref,
+) {
    var Comp = 'button';
 
    const props = { onClick, ...passProps };
-   
+
    if (to) {
       props.to = to;
       Comp = Link;
@@ -36,7 +39,6 @@ function Button({
       props.href = href;
       Comp = 'a';
    }
-
 
    if (disabled) {
       Object.keys(props).forEach((key) => {
@@ -50,9 +52,9 @@ function Button({
 
    return (
       <Comp ref={ref} className={classes} {...props}>
-         {leftIcon && <FontAwesomeIcon icon={leftIcon} />}
+         {leftIcon && <FontAwesomeIcon icon={leftIcon} className={cx('icon')} />}
          <span className={cx('title')}>{children}</span>
-         {rightIcon && <FontAwesomeIcon icon={rightIcon} />}
+         {rightIcon && <FontAwesomeIcon icon={rightIcon} className={cx('icon')} />}
       </Comp>
    );
 }

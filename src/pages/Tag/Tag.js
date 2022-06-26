@@ -1,18 +1,13 @@
-import React from 'react';
-
-import styles from './User.module.scss';
+import styles from './Tag.module.scss';
 import classNames from 'classnames/bind';
-import { Link } from 'react-router-dom';
-import Image from '../../components/Image';
-import MetaItem from '../../components/MetaItem';
-import { faFlag } from '@fortawesome/free-solid-svg-icons';
-import PostItem from '../../components/PostItem';
-import { UserSidebar } from '../../layouts/components/Sidebar';
+import Button from '../../components/Button/Button';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { TagSidebar } from '../../layouts/components/Sidebar';
 import CustomFilter from '../../components/Filter/CustomFilter';
+import PostItem from '../../components/PostItem';
 
 const cx = classNames.bind(styles);
 
-const UserData = { ID: '1', FULL_NAME: 'Cao Quoc An', AVATAR: '' };
 const Posts = [
    {
       ID: '1',
@@ -124,50 +119,40 @@ const FilterItems = [
    { title: 'Bài viết', path: 'posts' },
    { title: 'Series', path: 'series' },
    { title: 'Câu hỏi', path: 'questions' },
-   { title: 'Câu trả lời', path: 'answers' },
-   { title: 'Bookmarks', path: 'bookmarks' },
    { title: 'Người theo dõi', path: 'followers' },
-   { title: 'Thẻ', path: 'tags' },
 ];
 
-const User = function User() {
-   const rootPath = `/user/${UserData.ID}`;
+function Tag() {
+   const rootPath = '/tag/1';
 
    return (
       <div className={cx('wrapper')}>
-         <div className={cx('user')}>
-            <Link to={`/user/${UserData.ID}`} className={cx('avatar-link')}>
-               <Image src={UserData.AVATAR} className={cx('avatar')} />
-            </Link>
-            <div className={cx('user-info')}>
-               <Link to={`/user/${UserData.ID}`} className={cx('user-full-name')}>
-                  {UserData.FULL_NAME}
-               </Link>
-               <div className={cx('actions')}>
-                  <MetaItem
-                     icon={faFlag}
-                     value="Báo cáo"
-                     content="Báo cáo người dùng này"
-                     className={cx('report-btn')}
-                  />
-               </div>
+         <div className={cx('tag-about')}>
+            <p className={cx('tag-name')}>Javascript</p>
+            <div className={'actions'}>
+               <Button leftIcon={faPlus} outline className={cx('follow-btn')}>
+                  Theo dõi
+               </Button>
+               <Button leftIcon={faPlus} primary className={cx('follow-btn')}>
+                  Đang theo dõi
+               </Button>
             </div>
          </div>
-         <div className={cx('filter-area')}>
-            <div className={cx('filters')}>
-               <CustomFilter filters={FilterItems} defaultPath="posts" rootPath={rootPath} />
-            </div>
+         <div className={cx('container')}>
             <div className={cx('content')}>
-               <div className={cx('container')}>
-                  {Posts.map((Post, index) => (
-                     <PostItem data={Post} key={index} />
+               <div className={cx('filters')}>
+                  <CustomFilter filters={FilterItems} rootPath={rootPath} />
+               </div>
+               <div className={cx('main-content')}>
+                  {Posts.map((post) => (
+                     <PostItem data={post} />
                   ))}
                </div>
-               <UserSidebar />
             </div>
+            <TagSidebar />
          </div>
       </div>
    );
-};
+}
 
-export default User;
+export default Tag;
