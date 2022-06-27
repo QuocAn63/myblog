@@ -1,0 +1,23 @@
+.wrapper {
+  font-size: 1.4rem;
+  margin-top: 12px;
+  margin-right: 12px;
+
+  .title {
+    padding: 2px 8px;
+    border: 1px solid var(--low-gray-color);
+    border-right: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  .value {
+    padding: 2px 4px;
+    border: 1px solid var(--low-active-color);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: var(--low-active-color);
+    color: var(--white-color);
+    font-weight: bold;
+  }
+}

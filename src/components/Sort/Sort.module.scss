@@ -1,0 +1,46 @@
+.wrapper {
+  display: inline-block;
+  padding: 4px 12px;
+  position: relative;
+  cursor: pointer;
+
+  .title {
+    color: var(--gray-color);
+  }
+
+  .current {
+    font-weight: 700;
+    color: var(--active-color);
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+
+.sort-list {
+  background-color: var(--white-color);
+  padding: 8px 0;
+  border-radius: 4px;
+  border: 1px solid var(--low-gray-color);
+  box-shadow: 0 0 4px 0 rgb(0 0 0 / 10%);
+
+  .item {
+    padding: 8px 12px;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    cursor: pointer;
+
+    &.active {
+      color: var(--active-color);
+      background-color: #c7dffaa1;
+    }
+
+    &:hover {
+      background-color: #eef3f9;
+      color: var(--active-color);
+    }
+  }
+}

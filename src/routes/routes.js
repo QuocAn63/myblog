@@ -15,6 +15,7 @@ import PublishPost from '../pages/PublishPost';
 import Post from '../pages/Post';
 import User from '../pages/User';
 import Tag from '../pages/Tag';
+import Search from '../pages/Search';
 
 const publicRoutes = [
    { path: config.routes.home, component: Home },
@@ -29,6 +30,7 @@ const publicRoutes = [
    { path: config.routes.user, component: User, layout: UserLayout },
    { path: config.routes.userPostType, component: User, layout: UserLayout },
    { path: config.routes.tag, component: Tag, layout: UserLayout },
+   { path: config.routes.search, component: Search, layout: UserLayout },
 ];
 
 const privateRoutes = [];

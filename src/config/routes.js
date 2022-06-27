@@ -12,6 +12,7 @@ const routes = {
    questions: '/questions',
    questionsType: '/questions/:type',
    publishPost: '/publish/post',
+   search: '/search',
 };
 
 export default routes;
