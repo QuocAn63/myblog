@@ -73,7 +73,7 @@ function Questions() {
 
   return (
     <div className={cx('wrapper')}>
-      <Filter rootPath='/questions' filters={filters} />
+      <Filter filters={filters} typeName='type' />
       {!loading && (
         <>
           <div className={cx('content')}>

@@ -20,15 +20,12 @@ import Search from '../pages/Search';
 const publicRoutes = [
    { path: config.routes.home, component: Home },
    { path: config.routes.about, component: About },
-   { path: config.routes.postsType, component: Posts },
-   { path: config.routes.posts, component: () => <Navigate to="/posts/newest" replace /> },
-   { path: config.routes.questionsType, component: Questions },
-   { path: config.routes.questions, component: () => <Navigate to="/questions/newest" replace /> },
+   { path: config.routes.posts, component: Posts },
+   { path: config.routes.questions, component: Questions },
    { path: config.routes.discussions, component: Discussions },
    { path: config.routes.publishPost, component: PublishPost, layout: HeaderOnly, SearchOn: false, WideScreen: true },
    { path: config.routes.post, component: Post },
    { path: config.routes.user, component: User, layout: UserLayout },
-   { path: config.routes.userPostType, component: User, layout: UserLayout },
    { path: config.routes.tag, component: Tag, layout: UserLayout },
    { path: config.routes.search, component: Search, layout: UserLayout },
 ];

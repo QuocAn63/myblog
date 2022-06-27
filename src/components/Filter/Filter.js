@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import styles from './Filter.module.scss'
@@ -7,13 +7,21 @@ import { memo } from 'react'
 
 const cx = classNames.bind(styles)
 
-function Filter({ rootPath, filters }) {
+function Filter({ filters, typeName }) {
+  const [SearchParams, setSearchParams] = useSearchParams()
+  
+  const getCurrentParams = () => Object.fromEntries([...SearchParams])
+
+  const handleClick = path => {
+    const currentParams = getCurrentParams()
+    setSearchParams({...currentParams, [typeName]: path})
+  }
 
   return (
     <div className={cx('wrapper')}>
         <div className={cx('nav-container')}>
             {filters.map((filter, index) => (
-              <NavLink key={index} to={rootPath + "/" + filter.PATH}  className={nav => cx('nav-link', {active: nav.isActive})}>{filter.TITLE}</NavLink>
+              <div onClick={() => handleClick(filter.PATH)} key={index} className={cx('nav-link', (SearchParams.get(typeName) === filter.PATH || (index === 0 && !SearchParams.get(typeName))) ? 'active' : null)}>{filter.TITLE}</div>
             ))}
         </div>
     </div>
@@ -21,8 +29,8 @@ function Filter({ rootPath, filters }) {
 }
 
 Filter.propTypes = {
-  rootPath: PropTypes.string.isRequired,
-  filters: PropTypes.array.isRequired
+  filters: PropTypes.array.isRequired,
+  typeName: PropTypes.string.isRequired
 }
 
 export default memo(Filter)

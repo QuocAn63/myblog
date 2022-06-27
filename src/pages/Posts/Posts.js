@@ -66,7 +66,7 @@ function Posts() {
 
    return (
       <div className={cx('wrapper')}>
-         <Filter rootPath={'/posts'} filters={filters} />
+         <Filter filters={filters} typeName='type' />
          {!loading && (
             <>
                <div className={cx('content')}>
