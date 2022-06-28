@@ -56,13 +56,78 @@ const USER = {
    AVATAR: '',
 };
 
+const CommentsArray = [{
+   comment_id: '1',
+   content:
+      'nên chỉ dùng có các nhưng page đọc tin kiểu GET dữ liệu về thôi nhỉ b? Còn những page mà như cập nhật thông tin cá nhân thì ko dùng đúng ko bạn?',
+   time: '2022-06-03 12:03',
+   like: 0,
+   unlike: 0,
+   liked: false,
+   unliked: false,
+   author: {
+      author_id: '1',
+      author_fullName: 'Cao Quoc An',
+      avatar: '',
+   },
+   reply: [
+      {
+         comment_id: '2',
+         content:
+            'nên chỉ dùng có các nhưng page đọc tin kiểu GET dữ liệu về thôi nhỉ b? Còn những page mà như cập nhật thông tin cá nhân thì ko dùng đúng ko bạn?',
+         time: '2022-06-03 12:03',
+         like: 0,
+         unlike: 0,
+         liked: false,
+         unliked: false,
+         author: {
+            author_id: '1',
+            author_fullName: 'Cao Quoc An',
+            avatar: '',
+         },
+      },
+      {
+         comment_id: '3',
+         content:
+            'nên chỉ dùng có các nhưng page đọc tin kiểu GET dữ liệu về thôi nhỉ b? Còn những page mà như cập nhật thông tin cá nhân thì ko dùng đúng ko bạn?',
+         time: '2022-06-03 12:03',
+         like: 0,
+         unlike: 0,
+         liked: false,
+         unliked: false,
+         author: {
+            author_id: '1',
+            author_fullName: 'Cao Quoc An',
+            avatar: '',
+         },
+      },
+      {
+         comment_id: '4',
+         content:
+            'nên chỉ dùng có các nhưng page đọc tin kiểu GET dữ liệu về thôi nhỉ b? Còn những page mà như cập nhật thông tin cá nhân thì ko dùng đúng ko bạn?',
+         time: '2022-06-03 12:03',
+         like: 0,
+         unlike: 0,
+         liked: false,
+         unliked: false,
+         author: {
+            author_id: '1',
+            author_fullName: 'Cao Quoc An',
+            avatar: '',
+         },
+      },
+   ],
+}]
+
 function Post() {
-   const [loading, setLoading] = useState(false);
+   const [Loading, setLoading] = useState(false);
+   const [Comments, setComments] = useState([])
    const ContentRef = useRef();
 
    useEffect(() => {
       setLoading(true);
       setTimeout(() => {
+         setComments(CommentsArray)
          ContentRef.current.innerHTML = POST_DATA.CONTENT;
       }, 1000);
       setLoading(false);
@@ -70,7 +135,7 @@ function Post() {
 
    return (
       <div className={cx('wrapper')}>
-         {!loading && (
+         {!Loading && (
             <>
                <div className={cx('post-info')}>
                   <div className={cx('author')}>
@@ -120,12 +185,11 @@ function Post() {
                   <div className={cx('comment-wrapper')}>
                      <UserComment user={USER} />
                   </div>
-                  <div className={cx('comment-wrapper')}>
-                     <SideComment />
-                  </div>
-                  <div className={cx('comment-wrapper')}>
-                     <SideComment />
-                  </div>
+                  {Comments.map((Comment, index) => (
+                     <div className={cx('comment-wrapper')} key={index}>
+                        <SideComment data={Comment} />
+                     </div>
+                  ))}
                </div>
             </>
          )}

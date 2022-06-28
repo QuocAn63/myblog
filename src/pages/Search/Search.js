@@ -1,4 +1,3 @@
-import { useSearchParams } from 'react-router-dom';
 import styles from './Search.module.scss';
 import classNames from 'classnames/bind';
 import SearchSidebar from '../../layouts/components/Sidebar/SearchSidebar';
@@ -24,7 +23,6 @@ const SortItems = [
 ];
 
 function Search() {
-   const [SearchParams, setSearchParams] = useSearchParams();
 
    return (
       <div className={cx('wrapper')}>

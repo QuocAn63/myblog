@@ -10,6 +10,8 @@ const routes = {
    questions: '/questions',
    publishPost: '/publish/post',
    search: '/search',
+   login: '/login',
+   register: '/register'
 };
 
 export default routes;

@@ -88,13 +88,12 @@ const NotifyData = [
 
 function Header({ WideScreen = false, SearchOn = true }) {
    const [Notifies, setNotifies] = useState([]);
-   const { state, isAuthenticated, logout } = useAuthorization()
+   const { isAuthenticated, logout } = useAuthorization()
    const [isLogin, setIsLogin] = useState(false)
 
    useEffect(() => {
       setIsLogin(isAuthenticated())
       setTimeout(() => {
-         // eslint-disable-next-line react-hooks/exhaustive-deps
          setNotifies(NotifyData);
       }, 2000);
    }, [isAuthenticated]);
@@ -160,9 +159,9 @@ function Header({ WideScreen = false, SearchOn = true }) {
                         render={() => (
                            <div className={cx('menu')}>
                               {AccountActionItems.map((item, index) => (
-                                 <AccountMenu title={item.title} to={item.path} icon={item.icon} key={index} horizontal={item.horizontal} />
+                                 <AccountMenu title={item.title} to={item.path} icon={item.icon} key={index}/>
                               ))}
-                              <AccountMenu title='Đăng xuất' icon={faArrowRightFromBracket} onClick={() => handleLogout()} />
+                              <AccountMenu title='Đăng xuất' icon={faArrowRightFromBracket} horizontal onClick={() => handleLogout()} />
                            </div>
                         )}
                      >

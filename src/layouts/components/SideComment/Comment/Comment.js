@@ -26,20 +26,20 @@ function Comment({ data, children }) {
    return (
       <div className={cx('wrapper', { children })}>
          <div className={cx('author')}>
-            <Link to={`/user/${data.AUTHOR.ID}`} className={cx('avatar-link')}>
-               <Image src={data.AUTHOR.AVATAR} className={cx('avatar')} />
+            <Link to={`/user/${data.author.author_id}`} className={cx('avatar-link')}>
+               <Image src={data.author.avatar} className={cx('avatar')} />
             </Link>
             <div className={cx('author-info')}>
-               <Link to={`/user/${data.AUTHOR.ID}`} className={cx('author-name')}>
-                  {data.AUTHOR.FULL_NAME}
+               <Link to={`/user/${data.author.id}`} className={cx('author-name')}>
+                  {data.author.author_fullName}
                </Link>
-               <div className={cx('published_at')}>{data.TIME}</div>
+               <div className={cx('published_at')}>{data.time}</div>
             </div>
          </div>
-         <div className={cx('content')}>{data.CONTENT}</div>
+         <div className={cx('content')}>{data.content}</div>
          <div className={cx('actions')}>
-            <MetaItem icon={faAngleUp} value={data.LIKE} content="Thích" />
-            <MetaItem icon={faAngleDown} value={data.UNLIKE} content="Không thích" />
+            <MetaItem icon={faAngleUp} value={data.like} content="Thích" />
+            <MetaItem icon={faAngleDown} value={data.unlike} content="Không thích" />
             <div className={cx('horizontal')}></div>
             <MetaItem value={'Trả lời'} content="Trả lời" className={cx('button')} onClick={handleReply} />
             <MetaItem value={'Chia sẻ'} content="Chia sẻ đường dẫn của bình luận này" />
