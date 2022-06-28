@@ -22,27 +22,36 @@ function Paginate({ totalPage, className}) {
         const ActivePage = ({Number}) => <span className={cx('page', 'active')}>{Number}</span> 
         const DotPage = (key) => <span key={key} className={cx('page', 'disabled')}><FontAwesomeIcon icon={faEllipsis} /></span> 
         let array = []
+
         if(totalPage <= 10) {
             for(let i = 1; i <= totalPage; i++) {
                 array.push(i)
             }
         } else {    
             if(currentPage >= 7) {
-                if((currentPage - 3 >= 4) && (totalPage - (currentPage + 3) > 2)) {
-                    for(let i=1; i<=totalPage; i++) {
-                        if(((i >= currentPage - 3 && i <= currentPage + 3) || (i < 3 || i > totalPage - 2))) {
+                array = [1, 2]
+
+                if(totalPage - (currentPage + 2) > 2) {
+                    for(let i=4; i<=totalPage; i++) {
+                        if((i >= currentPage - 2 && i <= currentPage + 2) || (i > totalPage - 2)) {
                             array.push(i)
                         }
                     }
-                } else if(currentPage - 3 >= 4) {
-                    for(let i=4; i<=currentPage; i++) {
-                        array.push(i)
+                    array.splice(array.length - 2, 0, <FontAwesomeIcon icon={faEllipsis} />)
+                } else {
+                    for(let i=4; i<=totalPage; i++) {
+                        if(i >= totalPage - 7) {
+                            array.push(i)
+                        }
                     }
-                } else 
+                }
                 array.splice(2, 0, <FontAwesomeIcon icon={faEllipsis} />)
-                array.splice(array.length - 2, 0, <FontAwesomeIcon icon={faEllipsis} />)
-            }   
-            // Continue
+            } else {
+                for(let i = 1; i<=8; i++) {
+                    array.push(i)
+                }
+                array = [...array,<FontAwesomeIcon icon={faEllipsis} />, totalPage -1, totalPage]
+            }
         }
 
         array = array.map((item, index) => {

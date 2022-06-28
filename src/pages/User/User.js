@@ -131,7 +131,6 @@ const FilterItems = [
 ];
 
 const User = function User() {
-   const rootPath = `/user/${UserData.ID}`;
 
    return (
       <div className={cx('wrapper')}>
@@ -155,7 +154,7 @@ const User = function User() {
          </div>
          <div className={cx('filter-area')}>
             <div className={cx('filters')}>
-               <CustomFilter filters={FilterItems} defaultPath="posts" rootPath={rootPath} />
+               <CustomFilter filters={FilterItems} typeName='type' />
             </div>
             <div className={cx('content')}>
                <div className={cx('container')}>

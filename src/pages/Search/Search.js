@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useSearchParams } from 'react-router-dom';
 import styles from './Search.module.scss';
 import classNames from 'classnames/bind';
@@ -25,7 +24,6 @@ const SortItems = [
 ];
 
 function Search() {
-   let rootPath = '/search';
    const [SearchParams, setSearchParams] = useSearchParams();
 
    return (
@@ -40,7 +38,7 @@ function Search() {
                </Button>
             </div>
             <div className={cx('content')}>
-               <CustomFilter filters={FilterItems} rootPath={rootPath} defaultPath="posts" />
+               <CustomFilter filters={FilterItems} typeName='type' />
                <div className={cx('sort-area')}>
                   <Sort Title="Sắp xếp theo" SortItems={SortItems} />
                </div>

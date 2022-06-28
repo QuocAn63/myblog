@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useAuthorization } from '../../../hooks'
+
 import { NavLink } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -48,7 +50,7 @@ const AccountActionItems = [
    {
       title: 'Trang cá nhân',
       icon: faUser,
-      path: '/profile',
+      path: '/user/1',
    },
    {
       title: 'Quản lý nội dung',
@@ -59,13 +61,7 @@ const AccountActionItems = [
       title: 'Tuỳ chỉnh',
       icon: faGear,
       path: '/settings',
-   },
-   {
-      title: 'Đăng xuất',
-      icon: faArrowRightFromBracket,
-      path: '/logout',
-      horizontal: true,
-   },
+   }
 ];
 
 const NotifyData = [
@@ -92,14 +88,20 @@ const NotifyData = [
 
 function Header({ WideScreen = false, SearchOn = true }) {
    const [Notifies, setNotifies] = useState([]);
+   const { state, isAuthenticated, logout } = useAuthorization()
+   const [isLogin, setIsLogin] = useState(false)
 
    useEffect(() => {
+      setIsLogin(isAuthenticated())
       setTimeout(() => {
+         // eslint-disable-next-line react-hooks/exhaustive-deps
          setNotifies(NotifyData);
-      }, 4000);
-   }, []);
+      }, 2000);
+   }, [isAuthenticated]);
 
-   const isLogin = true;
+   const handleLogout = () => {
+      logout()
+   }
 
    const innerStyle = WideScreen ? cx('inner-wrapper', 'wide') : cx('inner-wrapper');
 
@@ -158,8 +160,9 @@ function Header({ WideScreen = false, SearchOn = true }) {
                         render={() => (
                            <div className={cx('menu')}>
                               {AccountActionItems.map((item, index) => (
-                                 <AccountMenu data={item} key={index} />
+                                 <AccountMenu title={item.title} to={item.path} icon={item.icon} key={index} horizontal={item.horizontal} />
                               ))}
+                              <AccountMenu title='Đăng xuất' icon={faArrowRightFromBracket} onClick={() => handleLogout()} />
                            </div>
                         )}
                      >
