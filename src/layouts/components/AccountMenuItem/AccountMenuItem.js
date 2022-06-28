@@ -7,19 +7,34 @@ import { Link } from 'react-router-dom'
 
 const cx = classNames.bind(styles)
 
-function AccountMenuItem({ data }) {
+function AccountMenuItem({ title, icon, to, onClick, horizontal = false, ...passProps }) {
+   const props = {
+      onClick,
+      ...passProps
+   }
+
+   let Comp =  'div'
+
+   if(to) {
+      props.to = to
+      Comp = Link
+   }
+
   return (
-    <Link to={data.path} className={cx('wrapper', data.horizontal ? 'horizontal' : null)}>
+    <Comp className={cx('wrapper', horizontal ? 'horizontal' : null)} {...props}>
       <span className={cx('icon')}>
-        <FontAwesomeIcon icon={data.icon} />
+        <FontAwesomeIcon icon={icon} />
       </span>
-      <div className={cx('title')}>{data.title}</div>
-    </Link>
+      <div className={cx('title')}>{title}</div>
+    </Comp>
   )
 }
 
 AccountMenuItem.propTypes = {
-  data: PropTypes.object.isRequired
+   title: PropTypes.string.isRequired,
+   icon: PropTypes.object.isRequired,
+   to: PropTypes.string,
+   onClick: PropTypes.func
 }
 
 export default AccountMenuItem

@@ -1,27 +1,23 @@
 import PropTypes from 'prop-types';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import styles from './CustomerFilter.module.scss';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-function CustomFilter({ filters, defaultPath, rootPath }) {
-   const location = useLocation();
+function CustomFilter({ filters, typeName }) {
+   const [SearchParams, setSearchParams] = useSearchParams()
+   const getCurrentParams = () => Object.fromEntries([...SearchParams])
+
+   const handleClick = path => {
+      const currentParams = getCurrentParams()
+      setSearchParams({...currentParams, [typeName]: path})
+   }
 
    return (
       <div className={cx('filter-container')}>
          {filters.map((item, index) => (
-            <NavLink
-               to={rootPath + '/' + item.path}
-               className={(nav) =>
-                  cx('filter-item', {
-                     active: (item.path === defaultPath && rootPath === location.pathname) || nav.isActive,
-                  })
-               }
-               key={index}
-            >
-               {item.title}
-            </NavLink>
+            <div key={index} onClick={() => handleClick(item.path)} className={cx('filter-item', (SearchParams.get(typeName) === item.path || (index === 0 && !SearchParams.get(typeName))) ? 'active' : null)}>{item.title}</div>
          ))}
       </div>
    );
@@ -29,8 +25,7 @@ function CustomFilter({ filters, defaultPath, rootPath }) {
 
 CustomFilter.propTypes = {
    filters: PropTypes.array.isRequired,
-   defaultPath: PropTypes.string,
-   rootPath: PropTypes.string.isRequired,
+   typeName: PropTypes.string.isRequired
 };
 
 export default CustomFilter;

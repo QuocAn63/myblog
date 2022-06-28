@@ -6,6 +6,7 @@
     padding: 12px 20px;
     color: var(--gray-color);
     font-weight: 600;
+    cursor: pointer;
 
     &.active {
       border-bottom: 2px solid var(--active-color);

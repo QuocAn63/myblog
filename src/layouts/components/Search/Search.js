@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import styles from './Search.module.scss';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -102,7 +102,7 @@ function Search() {
    const [searchValue, setSearchValue] = useState('');
    const [showResult, setShowResult] = useState(false);
    const [loading, setLoading] = useState(false);
-
+   const navigate = useNavigate()
    const debouncedValue = useDebounce(searchValue);
 
    useEffect(() => {
@@ -122,6 +122,12 @@ function Search() {
          setSearchValue(inputValue);
       }
    };
+
+   const handleSearch = () => {
+      if(searchValue) {
+         navigate({pathname: 'search', search: `q=${searchValue}`}, { replace: true})
+      }
+   }
 
    return (
       <div className={cx('wrapper')}>
@@ -157,7 +163,7 @@ function Search() {
                      {loading && <FontAwesomeIcon icon={faCircleNotch} className={cx('loading')} />}
                      {!loading && !!searchValue && <FontAwesomeIcon icon={faXmark} className={cx('clear')} />}
                   </div>
-                  <button type="button" className={cx('search-btn')}>
+                  <button type="button" className={cx('search-btn')} onClick={handleSearch}>
                      {<FontAwesomeIcon icon={faMagnifyingGlass} />}
                   </button>
                </div>

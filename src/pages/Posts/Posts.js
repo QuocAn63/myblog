@@ -74,7 +74,7 @@ function Posts() {
                      <PostItem data={PostData} key={index} />
                   ))}
                </div>
-               <Paginate currentPage={9} totalPage={15} className={cx('page')} />
+               <Paginate currentPage={1} totalPage={20} className={cx('page')} />
             </>
          )}
       </div>
