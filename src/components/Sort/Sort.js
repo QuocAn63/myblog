@@ -19,8 +19,6 @@ function Sort({ Title, SortItems: Items, defaultItem = 0, onClick }) {
       setSelectedItem(SortItems[SelectIndex].title);
    };
 
-   console.log('re-render');
-
    const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {
          handleClose();
@@ -33,6 +31,7 @@ function Sort({ Title, SortItems: Items, defaultItem = 0, onClick }) {
       return () => {
          document.removeEventListener('mouseup', handleClickOutside);
       };
+      // eslint-disable-next-line
    }, [Show]);
 
    return (

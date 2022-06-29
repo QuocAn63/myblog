@@ -14,7 +14,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--white-color);
-    width: 45vh;
     min-height: 40vh;
     border-radius: 5px;
     padding: 25px 25px 50px 25px;
@@ -34,7 +33,7 @@
     margin-bottom: 20px;
 
     .input-box {
-        width: 100%;
+        width: 340px;
         height: 40px;
         line-height: 40px;
         border-radius: 4px;
@@ -50,6 +49,10 @@
 
         &::placeholder {
             color: var(--gray-color);
+        }
+
+        &.error {
+            border-color: var(--low-red-color);
         }
     }
 }
@@ -85,7 +88,7 @@
 }
 
 .error-message {
-    padding: 2px 8px 0;
+    padding: 2px 16px 0;
 
     .title {
         font-size: 1.3rem;
