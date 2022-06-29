@@ -12,12 +12,20 @@ function App() {
                   const Layout = route.layout === null ? Fragment : route.layout || DefaultLayout;
                   const Page = route.component;
 
+                  let props = {}
+                  if(route.layout) {
+                     props = {
+                        SearchOn: route.SearchOn,
+                        WideScreen: route.WideScreen
+                     }
+                  }
+
                   return (
                      <Route
                         key={index}
                         path={route.path}
                         element={
-                           <Layout {...route}>
+                           <Layout {...props}>
                               <Page />
                            </Layout>
                         }
