@@ -13,11 +13,11 @@ export const useAuthorization = () => {
    }
 
    const isAuthenticated = () => {
-      return !!state.user_id
+      return !!state.id
    }
 
    return {
-      state,
+      user: state,
       isAuthenticated,
       login,
       logout

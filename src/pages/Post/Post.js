@@ -8,6 +8,7 @@ import UserComment from '../../layouts/components/SideComment/UserComment';
 import AuthorTag from '../../components/AuthorTab';
 import MetaItem from '../../components/MetaItem';
 import Tag from '../../components/Tag';
+import { useCommentActions } from '../../hooks/useCommentActions';
 
 const cx = classNames.bind(styles);
 
@@ -50,14 +51,8 @@ const POST_DATA = {
    },
 };
 
-const USER = {
-   ID: '1',
-   FULL_NAME: 'Cao Quoc An',
-   AVATAR: '',
-};
-
 const CommentsArray = [{
-   comment_id: '1',
+   id: '1',
    content:
       'nên chỉ dùng có các nhưng page đọc tin kiểu GET dữ liệu về thôi nhỉ b? Còn những page mà như cập nhật thông tin cá nhân thì ko dùng đúng ko bạn?',
    time: '2022-06-03 12:03',
@@ -66,13 +61,28 @@ const CommentsArray = [{
    liked: false,
    unliked: false,
    author: {
-      author_id: '1',
-      author_fullName: 'Cao Quoc An',
+      id: '1',
+      fullname: 'Cao Quoc An',
       avatar: '',
    },
    reply: [
       {
-         comment_id: '2',
+         id: '2',
+         content:
+            'nên chỉ dùng có các nhưng page đọc tin kiểu GET dữ liệu về thôi nhỉ b? Còn những page mà như cập nhật thông tin cá nhân thì ko dùng đúng ko bạn?',
+         time: '2022-06-03 12:03',
+         like: 0,
+         unlike: 0,
+         liked: false,
+         unliked: false,
+         author: {
+            id: '1',
+            fullname: 'Cao Quoc An',
+            avatar: '',
+         },
+      },
+      {
+         id: '3',
          content:
             'nên chỉ dùng có các nhưng page đọc tin kiểu GET dữ liệu về thôi nhỉ b? Còn những page mà như cập nhật thông tin cá nhân thì ko dùng đúng ko bạn?',
          time: '2022-06-03 12:03',
@@ -87,7 +97,7 @@ const CommentsArray = [{
          },
       },
       {
-         comment_id: '3',
+         id: '4',
          content:
             'nên chỉ dùng có các nhưng page đọc tin kiểu GET dữ liệu về thôi nhỉ b? Còn những page mà như cập nhật thông tin cá nhân thì ko dùng đúng ko bạn?',
          time: '2022-06-03 12:03',
@@ -96,23 +106,8 @@ const CommentsArray = [{
          liked: false,
          unliked: false,
          author: {
-            author_id: '1',
-            author_fullName: 'Cao Quoc An',
-            avatar: '',
-         },
-      },
-      {
-         comment_id: '4',
-         content:
-            'nên chỉ dùng có các nhưng page đọc tin kiểu GET dữ liệu về thôi nhỉ b? Còn những page mà như cập nhật thông tin cá nhân thì ko dùng đúng ko bạn?',
-         time: '2022-06-03 12:03',
-         like: 0,
-         unlike: 0,
-         liked: false,
-         unliked: false,
-         author: {
-            author_id: '1',
-            author_fullName: 'Cao Quoc An',
+            id: '1',
+            fullname: 'Cao Quoc An',
             avatar: '',
          },
       },
@@ -121,16 +116,18 @@ const CommentsArray = [{
 
 function Post() {
    const [Loading, setLoading] = useState(false);
-   const [Comments, setComments] = useState([])
+   const { Comments, setComments } = useCommentActions()
    const ContentRef = useRef();
+
 
    useEffect(() => {
       setLoading(true);
       setTimeout(() => {
-         setComments(CommentsArray)
+         setComments({comments: CommentsArray})
          ContentRef.current.innerHTML = POST_DATA.CONTENT;
       }, 1000);
       setLoading(false);
+   // eslint-disable-next-line
    }, []);
 
    return (
@@ -183,7 +180,7 @@ function Post() {
                <div className={cx('comment-side')}>
                   <h3 className={cx('title')}>Bình luận</h3>
                   <div className={cx('comment-wrapper')}>
-                     <UserComment user={USER} />
+                     <UserComment />
                   </div>
                   {Comments.map((Comment, index) => (
                      <div className={cx('comment-wrapper')} key={index}>
