@@ -3,15 +3,17 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './components/GlobalStyles'
-import { AuthorProvider } from './context'
+import { AuthorProvider, CommentProvider } from './context'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
      <AuthorProvider >
-         <GlobalStyles>
-           <App />
-         </GlobalStyles>
+        <CommentProvider >
+           <GlobalStyles>
+              <App />
+           </GlobalStyles>
+         </CommentProvider>
      </AuthorProvider>
   </React.StrictMode>
 );

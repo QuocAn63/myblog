@@ -26,12 +26,12 @@ function Comment({ data, children }) {
    return (
       <div className={cx('wrapper', { children })}>
          <div className={cx('author')}>
-            <Link to={`/user/${data.author.author_id}`} className={cx('avatar-link')}>
+            <Link to={`/user/${data.author.id}`} className={cx('avatar-link')}>
                <Image src={data.author.avatar} className={cx('avatar')} />
             </Link>
             <div className={cx('author-info')}>
                <Link to={`/user/${data.author.id}`} className={cx('author-name')}>
-                  {data.author.author_fullName}
+                  {data.author.fullname}
                </Link>
                <div className={cx('published_at')}>{data.time}</div>
             </div>

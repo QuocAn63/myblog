@@ -1,7 +1,8 @@
 const initUser = {
-   user_id: '1',
-   user_name: 'mototition',
-   user_fullname: 'Cao Quốc Ân',
+   id: '1',
+   username: 'mototition',
+   fullname: 'Cao Quốc Ân',
+   avatar: ''
 }
 
 function authorReducer (state, action) {

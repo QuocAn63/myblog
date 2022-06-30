@@ -12,7 +12,7 @@ function SideComment({ data }) {
       <div className={cx('wrapper')}>
          <Comment data={data} />
          <div className={cx('reply-container')}>
-            {data.reply.map((comment, index) => (
+            {data.reply && data.reply.map((comment, index) => (
                <Comment data={comment} children key={index} />
             ))}
          </div>

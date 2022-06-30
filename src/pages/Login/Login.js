@@ -66,13 +66,13 @@ function Login() {
                      </span>
                      <input
                         type="password"
-                        className={cx('input-box')}
+                        className={cx('input-box', errors.password && 'error')}
                         placeholder="Mật khẩu"
                         {...register('password', {
                            required: { value: true, message: 'không được bỏ trống' },
                            pattern: {
                               value: config.regex.password,
-                              message: 'phải từ 6 đến 16 ký tự\nchứa các ký tự không hợp lệ',
+                              message: 'không hợp lệ',
                            },
                         })}
                      />
