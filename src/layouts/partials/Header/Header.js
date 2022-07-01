@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useAuthorization } from '../../../hooks'
-
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
 import { NavLink } from 'react-router-dom';
+import * as AuthActions from '../../../actions/AuthAction'
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
@@ -24,6 +25,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../../components/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import authReducers from '../../../reducers/authReducer';
 
 const cx = classNames.bind(styles);
 
@@ -88,18 +90,15 @@ const NotifyData = [
 
 function Header({ WideScreen = false, SearchOn = true }) {
    const [Notifies, setNotifies] = useState([]);
-   const { isAuthenticated, logout } = useAuthorization()
    const [isLogin, setIsLogin] = useState(false)
 
    useEffect(() => {
-      setIsLogin(isAuthenticated())
       setTimeout(() => {
          setNotifies(NotifyData);
       }, 2000);
-   }, [isAuthenticated]);
+   }, []);
 
    const handleLogout = () => {
-      logout()
    }
 
    const innerStyle = WideScreen ? cx('inner-wrapper', 'wide') : cx('inner-wrapper');
@@ -188,4 +187,16 @@ function Header({ WideScreen = false, SearchOn = true }) {
    );
 }
 
-export default Header;
+function mapStateToProps(state) {
+   return {
+      user: state.authReducers
+   }
+}
+
+function mapDispatchToProps(dispatch) {
+   return {
+      actions: bindActionCreators(AuthActions, dispatch)
+   }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

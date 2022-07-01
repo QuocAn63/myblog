@@ -11,12 +11,6 @@ import { useCallback, useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-const USER = {
-   ID: '1',
-   FULL_NAME: 'Cao Quoc An',
-   AVATAR: '',
-};
-
 function Comment({ data, children }) {
    const [isReplying, setIsReplying] = useState(false);
 
@@ -47,7 +41,7 @@ function Comment({ data, children }) {
          </div>
          {isReplying && (
             <div className={cx('user-reply-area')}>
-               <UserComment user={USER} reply onCancel={handleCancelReply} />
+               <UserComment reply parentId={data.parentId} nCancel={handleCancelReply} />
             </div>
          )}
       </div>
