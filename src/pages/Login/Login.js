@@ -1,4 +1,9 @@
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import images from '../../assets/images';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import * as AuthActions from '../../actions/AuthAction'
 import config from '../../config';
 import { useForm } from 'react-hook-form';
 import styles from './Login.module.scss';
@@ -9,13 +14,13 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function Login() {
+function Login({ ...props }) {
    const {
       register,
       handleSubmit,
       formState: { errors },
    } = useForm();
-
+   const { user, actions } = props
    const ErrorMessage = ({ label, message }) => {
       const MessageArray = message.split('\n');
 
@@ -29,8 +34,20 @@ function Login() {
          </div>
       );
    };
+   const navigate = useNavigate();
 
-   const onSubmit = () => {};
+   useEffect(() => {
+      if(!!user.id) {
+         navigate('/', {replace: true})
+      }
+   }, [user])
+
+   const onSubmit = (data) => {
+      const userForm = {username: data.username, password: data.password}
+      if(!user.id) {
+         actions.login(userForm)
+      }
+   };
 
    return (
       <div className={cx('wrapper')} style={{ backgroundImage: `url(${images.loginBackground})` }}>
@@ -46,9 +63,9 @@ function Login() {
                      </span>
                      <input
                         type="text"
-                        className={cx('input-box', errors.user_name && 'error')}
+                        className={cx('input-box', errors.username && 'error')}
                         placeholder="Tên tài khoản"
-                        {...register('user_name', {
+                        {...register('username', {
                            required: { value: true, message: 'không được bỏ trống' },
                            pattern: {
                               value: config.regex.userName,
@@ -57,7 +74,7 @@ function Login() {
                         })}
                      />
                   </div>
-                  {errors.user_name && <ErrorMessage label="Tên tài khoản" message={errors.user_name.message} />}
+                  {errors.username && <ErrorMessage label="Tên tài khoản" message={errors.username.message} />}
                </div>
                <div className={cx('input-group')}>
                   <div className={cx('inner')}>
@@ -96,4 +113,16 @@ function Login() {
    );
 }
 
-export default Login;
+function mapStateToProps(state) {
+   return {
+      user: state.authReducers
+   }
+}
+
+function mapDispatchToProps(dispatch) {
+   return {
+      actions: bindActionCreators(AuthActions, dispatch)
+   }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
