@@ -3,18 +3,22 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './components/GlobalStyles'
-import { AuthorProvider, CommentProvider } from './context'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import rootReducer from './reducers/rootReducer'
+
+const initialState = {}
+
+const store = createStore(rootReducer, initialState)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-     <AuthorProvider >
-        <CommentProvider >
+     <Provider store={store}>
            <GlobalStyles>
               <App />
            </GlobalStyles>
-         </CommentProvider>
-     </AuthorProvider>
+     </Provider>
   </React.StrictMode>
 );
 

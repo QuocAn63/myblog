@@ -1,14 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './Post.module.scss';
 import classNames from 'classnames/bind';
-import SideComment from '../../layouts/components/SideComment';
 import { faEye, faComment, faBookmark } from '@fortawesome/free-solid-svg-icons';
-
-import UserComment from '../../layouts/components/SideComment/UserComment';
+import Comments from '../../layouts/components/Comments'
+import UserComment from '../../layouts/components/Comments/UserComment';
 import AuthorTag from '../../components/AuthorTab';
 import MetaItem from '../../components/MetaItem';
 import Tag from '../../components/Tag';
-import { useCommentActions } from '../../hooks/useCommentActions';
 
 const cx = classNames.bind(styles);
 
@@ -64,10 +62,10 @@ const CommentsArray = [{
       id: '1',
       fullname: 'Cao Quoc An',
       avatar: '',
-   },
-   reply: [
-      {
+   }},
+   {
          id: '2',
+         parentId: '1',
          content:
             'nên chỉ dùng có các nhưng page đọc tin kiểu GET dữ liệu về thôi nhỉ b? Còn những page mà như cập nhật thông tin cá nhân thì ko dùng đúng ko bạn?',
          time: '2022-06-03 12:03',
@@ -83,6 +81,7 @@ const CommentsArray = [{
       },
       {
          id: '3',
+         parentId: '1',
          content:
             'nên chỉ dùng có các nhưng page đọc tin kiểu GET dữ liệu về thôi nhỉ b? Còn những page mà như cập nhật thông tin cá nhân thì ko dùng đúng ko bạn?',
          time: '2022-06-03 12:03',
@@ -98,6 +97,7 @@ const CommentsArray = [{
       },
       {
          id: '4',
+         parentId: '1',
          content:
             'nên chỉ dùng có các nhưng page đọc tin kiểu GET dữ liệu về thôi nhỉ b? Còn những page mà như cập nhật thông tin cá nhân thì ko dùng đúng ko bạn?',
          time: '2022-06-03 12:03',
@@ -109,24 +109,15 @@ const CommentsArray = [{
             id: '1',
             fullname: 'Cao Quoc An',
             avatar: '',
-         },
-      },
-   ],
-}]
+         }}
+]
 
 function Post() {
    const [Loading, setLoading] = useState(false);
-   const { Comments, setComments } = useCommentActions()
    const ContentRef = useRef();
 
-
    useEffect(() => {
-      setLoading(true);
-      setTimeout(() => {
-         setComments({comments: CommentsArray})
-         ContentRef.current.innerHTML = POST_DATA.CONTENT;
-      }, 1000);
-      setLoading(false);
+      ContentRef.current.innerHTML = POST_DATA.CONTENT;
    // eslint-disable-next-line
    }, []);
 
@@ -182,11 +173,7 @@ function Post() {
                   <div className={cx('comment-wrapper')}>
                      <UserComment />
                   </div>
-                  {Comments.map((Comment, index) => (
-                     <div className={cx('comment-wrapper')} key={index}>
-                        <SideComment data={Comment} />
-                     </div>
-                  ))}
+                  <Comments comments={CommentsArray}/>
                </div>
             </>
          )}

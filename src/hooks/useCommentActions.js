@@ -12,9 +12,14 @@ export const useCommentActions = () => {
       dispatch({payload: {comment},type: 'COMMENT'})
    }
 
+   const performReply = ({ comment, parentId }) => {
+      dispatch({payload: {comment, parentId},type: 'REPLY'})
+   }
+
    return ({
       Comments: state,
       setComments,
-      performComment
+      performComment,
+      performReply
    })
 }
