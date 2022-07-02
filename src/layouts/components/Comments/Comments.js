@@ -3,37 +3,68 @@ import styles from './Comments.module.scss';
 import classNames from 'classnames/bind';
 import Comment from './Comment';
 import { useEffect, useState } from 'react';
+import * as CommentActions from '../../../actions/CommentAction'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux'
+import UserComment from './UserComment';
 
 const cx = classNames.bind(styles);
 
-function Comments({ comments: commentsData }) {
-   const [comments, setComments] = useState([]);
+function Comments({ data, ...props }) {
+   const {comments, actions} = props
+   const {setComments, likeComment, undoLikeComment, unlikeComment, undoUnlikeComment, doComment, doReply} = actions
+
+   const passProps = {
+      likeComment, undoLikeComment, unlikeComment, undoUnlikeComment, doReply
+   }
 
    const getReplies = (parentId) => {
-      return commentsData.filter(comment => comment.parentId === parentId)
+      return comments
+         .filter(comment => comment.parentId === parentId)
+         .sort((a, b) => new Date(a.time).getTime() - new Date(b.time).getTime())
+   }
+
+   const getParentComments = () => {
+      return comments
+               .filter(comment => comment.parentId === undefined)
+               .sort((a, b) => new Date(a.time).getTime - new Date(b.time).getTime)
    }
 
    useEffect(() => {
-      const parentComment = commentsData.filter(comment => comment.parentId === undefined);
-      setComments(parentComment)
+      setComments(data)
    }, [])
 
-
    return (
-   comments.map((comment, index) => (
-         <div className={cx('wrapper')} key={index}>
-            <Comment data={comment} />
-            <div className={cx('reply-container')}>
-               {getReplies(comment.id).map((reply, index) => <Comment data={reply} children key={index} />)}
-            </div>
+      <>
+         <div className={cx('user-comment')}>
+            <UserComment doComment={doComment} />
          </div>
-
-   ))
+         {getParentComments().map((comment, index) => (
+               <div className={cx('wrapper')} key={index}>
+                  <Comment data={comment} {...passProps} />
+                  <div className={cx('reply-container')}>
+                     {getReplies(comment.id).map((reply, index) => <Comment data={reply} children key={index} {...passProps} />)}
+                  </div>
+               </div>
+         ))}
+      </>
    );
 }
 
-Comments.prototype = {
-   comments: PropTypes.array.isRequired
+function mapStateToProps(state) {
+   return {
+      comments: state.commentReducers
+   }
 }
 
-export default Comments;
+function mapDispatchToProps(dispatch) {
+   return {
+      actions: bindActionCreators(CommentActions, dispatch)
+   }
+}
+
+Comments.prototype = {
+   data: PropTypes.array.isRequired
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Comments);

@@ -85,6 +85,8 @@ function Header({ WideScreen = false, SearchOn = true, ...props }) {
             setIsLogin(false)
             setNotifies([])
          }
+
+      // eslint-disable-next-line
    }, [user.id]);
 
    const handleLogout = () => {

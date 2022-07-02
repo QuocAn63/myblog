@@ -3,23 +3,24 @@ import styles from './Post.module.scss';
 import classNames from 'classnames/bind';
 import { faEye, faComment, faBookmark } from '@fortawesome/free-solid-svg-icons';
 import Comments from '../../layouts/components/Comments'
-import UserComment from '../../layouts/components/Comments/UserComment';
 import AuthorTag from '../../components/AuthorTab';
 import MetaItem from '../../components/MetaItem';
 import Tag from '../../components/Tag';
+import PostAction from '../../components/PostAction'
+import User from '../User';
 
 const cx = classNames.bind(styles);
 
 const AUTHOR_DATA = {
-   AUTHOR: {
-      ID: '3',
-      FULL_NAME: 'CAO QUOC AN',
-      AVATAR: '',
+   author: {
+      id: '3',
+      fullname: 'CAO QUOC AN',
+      avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYtfZRhbGQtq2BapB2MXJfWIO2QriO5Wx3qQ&usqp=CAU',
    },
-   META: {
-      RATING: 0,
-      POSTS: 0,
-      FOLLOWING: 0,
+   meta: {
+      rating: 0,
+      posts: 0,
+      following: 0,
    },
 };
 
@@ -42,7 +43,7 @@ const POST_DATA = {
       },
    ],
    META: {
-      TIME: '2022-06-23 11:12',
+      TIME: '2022-06-23 11:12:02',
       VIEWS: 0,
       COMMENTS: 0,
       BOOKMARKS: 0,
@@ -51,24 +52,25 @@ const POST_DATA = {
 
 const CommentsArray = [{
    id: '1',
-   content:
+   body:
       'nên chỉ dùng có các nhưng page đọc tin kiểu GET dữ liệu về thôi nhỉ b? Còn những page mà như cập nhật thông tin cá nhân thì ko dùng đúng ko bạn?',
-   time: '2022-06-03 12:03',
+   time: '2022-06-03 12:04:05',
    like: 0,
    unlike: 0,
    liked: false,
    unliked: false,
    author: {
-      id: '1',
-      fullname: 'Cao Quoc An',
-      avatar: '',
-   }},
+         id: '1',
+         fullname: 'Cao Quoc An',
+         avatar: 'https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300',
+      }
+   },
    {
          id: '2',
          parentId: '1',
-         content:
+         body:
             'nên chỉ dùng có các nhưng page đọc tin kiểu GET dữ liệu về thôi nhỉ b? Còn những page mà như cập nhật thông tin cá nhân thì ko dùng đúng ko bạn?',
-         time: '2022-06-03 12:03',
+         time: '2022-06-03 12:03:10',
          like: 0,
          unlike: 0,
          liked: false,
@@ -76,15 +78,15 @@ const CommentsArray = [{
          author: {
             id: '1',
             fullname: 'Cao Quoc An',
-            avatar: '',
+            avatar: 'https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300',
          },
       },
       {
          id: '3',
          parentId: '1',
-         content:
+         body:
             'nên chỉ dùng có các nhưng page đọc tin kiểu GET dữ liệu về thôi nhỉ b? Còn những page mà như cập nhật thông tin cá nhân thì ko dùng đúng ko bạn?',
-         time: '2022-06-03 12:03',
+         time: '2022-06-03 12:03:22',
          like: 0,
          unlike: 0,
          liked: false,
@@ -98,9 +100,9 @@ const CommentsArray = [{
       {
          id: '4',
          parentId: '1',
-         content:
+         body:
             'nên chỉ dùng có các nhưng page đọc tin kiểu GET dữ liệu về thôi nhỉ b? Còn những page mà như cập nhật thông tin cá nhân thì ko dùng đúng ko bạn?',
-         time: '2022-06-03 12:03',
+         time: '2022-06-03 12:03:51',
          like: 0,
          unlike: 0,
          liked: false,
@@ -113,6 +115,7 @@ const CommentsArray = [{
 ]
 
 function Post() {
+   // eslint-disable-next-line
    const [Loading, setLoading] = useState(false);
    const ContentRef = useRef();
 
@@ -126,14 +129,15 @@ function Post() {
          {!Loading && (
             <>
                <div className={cx('post-info')}>
+                  <PostAction author={AUTHOR_DATA.author} />
                   <div className={cx('author')}>
                      <AuthorTag
-                        ID={AUTHOR_DATA.AUTHOR.ID}
-                        AVATAR={AUTHOR_DATA.AUTHOR.AVATAR}
-                        FULL_NAME={AUTHOR_DATA.AUTHOR.FULL_NAME}
-                        POSTS={AUTHOR_DATA.META.POSTS}
-                        RATING={AUTHOR_DATA.META.RATING}
-                        FOLLOWING={AUTHOR_DATA.META.FOLLOWING}
+                        ID={AUTHOR_DATA.author.id}
+                        AVATAR={AUTHOR_DATA.author.avatar}
+                        FULL_NAME={AUTHOR_DATA.author.fullname}
+                        POSTS={AUTHOR_DATA.meta.posts}
+                        RATING={AUTHOR_DATA.meta.rating}
+                        FOLLOWING={AUTHOR_DATA.meta.following}
                      />
                   </div>
                   <div className={cx('meta-container')}>
@@ -170,10 +174,7 @@ function Post() {
                </div>
                <div className={cx('comment-side')}>
                   <h3 className={cx('title')}>Bình luận</h3>
-                  <div className={cx('comment-wrapper')}>
-                     <UserComment />
-                  </div>
-                  <Comments comments={CommentsArray}/>
+                  <Comments data={CommentsArray}/>
                </div>
             </>
          )}

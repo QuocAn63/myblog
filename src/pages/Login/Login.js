@@ -40,6 +40,7 @@ function Login({ ...props }) {
       if(!!user.id) {
          navigate('/', {replace: true})
       }
+      // eslint-disable-next-line 
    }, [user])
 
    const onSubmit = (data) => {

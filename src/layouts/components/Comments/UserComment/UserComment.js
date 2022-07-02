@@ -4,21 +4,36 @@ import classNames from 'classnames/bind';
 import Image from '../../../../components/Image';
 import { Link } from 'react-router-dom';
 import Button from '../../../../components/Button/Button';
-import { memo, useState } from 'react';
+import { useState } from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators} from 'redux';
+import * as authActions from '../../../../actions/AuthAction'
 
 const cx = classNames.bind(styles);
 
-function UserComment({ reply = false, parentId = null, onCancel}) {
+function UserComment({ reply = false, parentId = null, onCancel, doComment, doReply, setIsReplying = false, ...props}) {
    const [CommentValue, setCommentValue] = useState('');
+   const { user } = props
    const autoGrow = (e) => {
       e.target.style.height = '5px';
       e.target.style.height = e.target.scrollHeight + 'px';
    };
 
+   const handleClear = () => {
+      setCommentValue('')
+      setIsReplying&&setIsReplying(false)
+   }
+
    const handleComment = () => {
+      const comment = {body: CommentValue, author: {...user}}
+      doComment({ comment })
+      handleClear()
    }
 
    const handleReply = () => {
+      const reply = {body: CommentValue, parentId, author: {...user}}
+      doReply({ reply })
+      handleClear()
    }
 
    return (
@@ -59,6 +74,20 @@ function UserComment({ reply = false, parentId = null, onCancel}) {
 
 UserComment.propTypes = {
    onCancel: PropTypes.func,
+   doComment: PropTypes.func,
+   doReply: PropTypes.func
 };
 
-export default memo(UserComment);
+function mapStateToProps(state) {
+   return {
+      user: state.authReducers
+   }
+}
+
+function mapDispatchToProps(dispatch) {
+   return {
+      actions: bindActionCreators(authActions, dispatch)
+   }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserComment);
