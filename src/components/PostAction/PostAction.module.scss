@@ -1,7 +1,6 @@
 .wrapper {
-  position: fixed;
-  top: calc(var(--header-height) + 40px + 8px + 100px);
-  left: 280px;
+  position: sticky;
+  top: 0;
 }
 
 .container {
@@ -9,10 +8,19 @@
   align-items: center;
   flex-direction: column;
   gap: 30px;
+
+  
+  &.show {
+    padding: 100px 0;  
+  }
+
+  &.show .avatar-link {
+    display: block;
+  }
 }
 
 .avatar-link {
-  display: block;
+  display: none;
   height: 50px;
   width: 50px;
   border-radius: 50%;

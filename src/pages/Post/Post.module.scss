@@ -22,6 +22,19 @@
     }
 }
 
+.content-area {
+    min-height: 200vh;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+}
+
 .comment-side {
     margin-top: 40px;
+}
+
+.actions {
+   
 }

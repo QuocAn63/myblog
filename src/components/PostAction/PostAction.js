@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { useRef, useState } from 'react'
 import styles from './PostAction.module.scss'
 import classNames from 'classnames/bind'
 import Image from '../Image';
@@ -23,20 +24,25 @@ const ActionButton = ({ icon, content }) => (
 )
 
 function PostAction({author, postPoints = 0, postUrl}) {
+   const ref = useRef()
 
    const showAvatar = () => {
-      document.addEventListener('scroll', function() {
-
-      })
+      if(window.scrollY > 60) {
+         ref.current.classList.add(cx('show'))
+      } else {
+         ref.current.classList.remove(cx('show'))
+      }
    }
 
    useEffect(() => {
+      document.addEventListener('scroll', showAvatar)
 
-   })
+      return () => document.removeEventListener('scroll', showAvatar)
+   }, [])
 
    return (
    <div className={cx('wrapper')}>
-      <div className={cx('container')}>
+      <div className={cx('container')} ref={ref}>
          <Link to={`/user/${author.id}`} className={cx('avatar-link')}>
             <Image src={author.avatar} className={cx('avatar')} />
          </Link>
