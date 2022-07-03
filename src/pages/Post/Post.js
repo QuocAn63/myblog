@@ -133,7 +133,7 @@ function Post({...props}) {
                   <div className={cx('actions')}>
                      <PostAction author={AUTHOR_DATA.author} />
                   </div>
-                  <div>
+                  <div className={cx('post-content')}>
                      <div className={cx('post-info')}>
                         <div className={cx('author')}>
                            <AuthorTag

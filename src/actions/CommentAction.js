@@ -48,3 +48,17 @@ export const doReply = ({reply}) => {
       payload: {reply}
    }
 }
+
+export const likePost = (id) => {
+   return {
+      type: actions.LIKE_POST,
+      payload: {id}
+   }
+}
+
+export const unlikePost = (id) => {
+   return {
+      type: actions.UNLIKE_POST,
+      payload: {id}
+   }
+}

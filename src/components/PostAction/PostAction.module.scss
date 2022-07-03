@@ -8,7 +8,7 @@
   align-items: center;
   flex-direction: column;
   gap: 30px;
-
+  padding: 100px 0 100px;
   
   &.show {
     padding: 100px 0;  
@@ -43,6 +43,18 @@
     line-height: 1rem;
     padding: 0;
     height: 20px;
+
+    &:hover {
+      color: var(--text-color);
+    }
+
+    &.active {
+      color: var(--low-active-color);
+    }
+
+    &:hover.active {
+      opacity: 0.8;
+    }
   }
 
   .value {

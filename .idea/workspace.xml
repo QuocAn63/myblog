@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4fc68245-b236-4608-8d31-eee9c0132ae4" name="Changes" comment="Update: CommentAction redux, PostAction component">
+      <change afterPath="$PROJECT_DIR$/src/components/ScrollToTop/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/CommentAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/CommentAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GlobalStyles/GlobalStyles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GlobalStyles/GlobalStyles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GlobalStyles/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GlobalStyles/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PostAction/PostAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostAction/PostAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PostAction/PostAction.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostAction/PostAction.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Post/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Post/Post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Post/Post.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Post/Post.module.scss" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="SCSS File" />
+        <option value="Sass File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2AyextYVoxnONhT7pqNDSaBgVja" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Quoc An/Desktop/projects/myblog/src/pages&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;Sass&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Quoc An\\Desktop\\projects\\myblog\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;watcher.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Quoc An\Desktop\projects\myblog\src\pages" />
+      <recent name="C:\Users\Quoc An\Desktop\projects\myblog\src\layouts\components\Sidebar" />
+      <recent name="C:\Users\Quoc An\Desktop\projects\myblog\src\layouts\UserLayout" />
+      <recent name="C:\Users\Quoc An\Desktop\projects\myblog\src\layouts\components\SideComment\CommentItem" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Quoc An\Desktop\projects\myblog\src\layouts\components\Sidebar\DefaultSidebar" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4fc68245-b236-4608-8d31-eee9c0132ae4" name="Changes" comment="" />
+      <created>1655986502444</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655986502444</updated>
+      <workItem from="1655986505139" duration="373000" />
+      <workItem from="1655989111409" duration="2473000" />
+      <workItem from="1656034799693" duration="10026000" />
+      <workItem from="1656075577468" duration="6580000" />
+      <workItem from="1656125053724" duration="3766000" />
+      <workItem from="1656160704225" duration="3313000" />
+      <workItem from="1656207055920" duration="3908000" />
+      <workItem from="1656246758903" duration="4154000" />
+      <workItem from="1656259195250" duration="443000" />
+      <workItem from="1656299237462" duration="7939000" />
+      <workItem from="1656332233325" duration="384000" />
+      <workItem from="1656332632527" duration="3668000" />
+      <workItem from="1656336398729" duration="809000" />
+      <workItem from="1656383566380" duration="11300000" />
+      <workItem from="1656407580291" duration="74000" />
+      <workItem from="1656419881281" duration="5134000" />
+      <workItem from="1656470870437" duration="4209000" />
+      <workItem from="1656482358263" duration="1077000" />
+      <workItem from="1656494484975" duration="87000" />
+      <workItem from="1656504820647" duration="6821000" />
+      <workItem from="1656514699978" duration="2439000" />
+      <workItem from="1656557113527" duration="1667000" />
+      <workItem from="1656592290814" duration="145000" />
+      <workItem from="1656592460317" duration="2074000" />
+      <workItem from="1656646055407" duration="5849000" />
+      <workItem from="1656653922794" duration="256000" />
+      <workItem from="1656677028432" duration="11334000" />
+      <workItem from="1656729886499" duration="7451000" />
+      <workItem from="1656850929316" duration="20000" />
+      <workItem from="1656851078236" duration="5271000" />
+    </task>
+    <task id="LOCAL-00001" summary="Update: Comment component">
+      <created>1656045874337</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1656045874337</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update: CustomFilter, Sidebar structure&#10;Create pages: User, Tag">
+      <created>1656211420015</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656211420015</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update: Search page">
+      <created>1656307395989</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1656307395989</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Update: Header&#10;Create: Author Context">
+      <created>1656407638476</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1656407638476</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Update: regex, register&#10;Validate login, register">
+      <created>1656494561686</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1656494561686</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Create: FormControl component,&#10;Update: CommentAction context">
+      <created>1656563961107</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1656563961107</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Create: redux,&#10;Delete: global context">
+      <created>1656654169252</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1656654169252</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Update: CommentAction redux, PostAction component">
+      <created>1656737564653</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1656737564653</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update: Comment component" />
+    <MESSAGE value="Update: CustomFilter, Sidebar structure&#10;Create pages: User, Tag" />
+    <MESSAGE value="Update: Search page" />
+    <MESSAGE value="Update: Header&#10;Create: Author Context" />
+    <MESSAGE value="Update: regex, register&#10;Validate login, register" />
+    <MESSAGE value="Create: FormControl component,&#10;Update: CommentAction context" />
+    <MESSAGE value="Create: redux,&#10;Delete: global context" />
+    <MESSAGE value="Update: CommentAction redux, PostAction component" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update: CommentAction redux, PostAction component" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
