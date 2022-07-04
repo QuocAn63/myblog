@@ -12,6 +12,7 @@ function App() {
                <Routes>
                   {publicRoutes.map((route, index) => {
                      const Layout = route.layout === null ? Fragment : route.layout || DefaultLayout;
+                     const SubPath = route.subPath || Fragment
                      const Page = route.component;
 
                      let props = {}
@@ -31,7 +32,9 @@ function App() {
                                  <Page />
                               </Layout>
                            }
-                        />
+                        >
+                           
+                        </Route>
                      );
                   })}
                </Routes>

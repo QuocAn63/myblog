@@ -11,7 +11,9 @@ const routes = {
    publishPost: '/publish/post',
    search: '/search',
    login: '/login',
-   register: '/register'
+   register: '/register',
+   profile: '/profile',
+   profileType: '/profile/:type'
 };
 
 export default routes;

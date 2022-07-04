@@ -155,7 +155,7 @@ function User({ ...props }) {
                </Link>
                <div className={cx('actions')}>
                   {isOwnProfile ? (
-                     <Button outline className={cx('edit-profile-btn')} to="/account">
+                     <Button outline className={cx('edit-profile-btn')} to="/profile">
                         Sửa
                      </Button>
                   ) : (

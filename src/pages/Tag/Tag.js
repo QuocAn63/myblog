@@ -12,7 +12,7 @@ const Posts = [
    {
       ID: '1',
       TITLE: 'UI UX là gì? UI, UX design là gì?',
-      PUBLISHED_AT: '2022-07-21 12-05',
+      PUBLISHED_AT: '2022-04-21 12:05',
       AUTHOR: { ID: '1', FULL_NAME: 'Cao Quoc An', AVATAR: '' },
       META: {
          VIEWS: 0,
@@ -38,7 +38,7 @@ const Posts = [
    {
       ID: '1',
       TITLE: 'UI UX là gì? UI, UX design là gì?',
-      PUBLISHED_AT: '2022-07-21 12-05',
+      PUBLISHED_AT: '2022-04-21 12:05',
       AUTHOR: { ID: '1', FULL_NAME: 'Cao Quoc An', AVATAR: '' },
       META: {
          VIEWS: 0,
@@ -64,7 +64,7 @@ const Posts = [
    {
       ID: '1',
       TITLE: 'UI UX là gì? UI, UX design là gì?',
-      PUBLISHED_AT: '2022-07-21 12-05',
+      PUBLISHED_AT: '2022-04-21 12:05',
       AUTHOR: { ID: '1', FULL_NAME: 'Cao Quoc An', AVATAR: '' },
       META: {
          VIEWS: 0,
@@ -90,7 +90,7 @@ const Posts = [
    {
       ID: '1',
       TITLE: 'UI UX là gì? UI, UX design là gì?',
-      PUBLISHED_AT: '2022-07-21 12-05',
+      PUBLISHED_AT: '2022-04-21 12:05',
       AUTHOR: { ID: '1', FULL_NAME: 'Cao Quoc An', AVATAR: '' },
       META: {
          VIEWS: 0,
