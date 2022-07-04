@@ -7,6 +7,7 @@ import AuthorTag from '../../components/AuthorTab';
 import MetaItem from '../../components/MetaItem';
 import Tag from '../../components/Tag';
 import PostAction from '../../components/PostAction';
+import TimeConverter from '../../components/TimeConverter';
 
 const cx = classNames.bind(styles);
 
@@ -118,8 +119,6 @@ function Post({...props}) {
    const [Loading, setLoading] = useState(false);
    const ContentRef = useRef();
 
-   console.log(props);
-
    useEffect(() => {
       ContentRef.current.innerHTML = POST_DATA.CONTENT;
       // eslint-disable-next-line
@@ -147,7 +146,7 @@ function Post({...props}) {
                         </div>
                         <div className={cx('meta-container')}>
                            <div className={cx('container')}>
-                              <MetaItem value={`Đã đăng vào: ${POST_DATA.META.TIME}`} />
+                              <MetaItem value={<span>Đã đăng vào: <TimeConverter inputTime={POST_DATA.META.TIME} format /></span>} />
                            </div>
                            <div className={cx('container')}>
                               <MetaItem

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import styles from './PostContainer.module.scss'
 import classNames from 'classnames/bind'
-
 import PostItem from '../../components/PostItem'
 
 const cx = classNames.bind(styles)
@@ -16,7 +15,7 @@ const PostData = {
         AVATAR: "https://images.viblo.asia/avatar/3f5b542e-6833-4cd4-82f0-a78081e917c6.jpg",
         FULL_NAME: "Cao Quoc An"
     },
-    PUBLISHED_AT: "2022-06-10 12:03 CH",
+    PUBLISHED_AT: "2022-07-04 9:26:03",
     TAGS: [
         {
             ID: "1",
