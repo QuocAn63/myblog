@@ -15,9 +15,9 @@ import Post from '../pages/Post';
 import User from '../pages/User';
 import Tag from '../pages/Tag';
 import Search from '../pages/Search';
-import Login from '../pages/Login'
-import Register from '../pages/Register'
-import Profile from '../pages/Profile/Profile';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
+import Profile, * as ProfileTabs from '../pages/Profile';
 
 const publicRoutes = [
    { path: config.routes.home, component: Home },
@@ -30,9 +30,21 @@ const publicRoutes = [
    { path: config.routes.user, component: User, layout: UserLayout },
    { path: config.routes.tag, component: Tag, layout: UserLayout },
    { path: config.routes.search, component: Search, layout: UserLayout },
-   { path: config.routes.login, component: Login, layout: null},
-   { path: config.routes.register, component: Register, layout: null},
-   { path: config.routes.profile, component: Profile, subPath: [config.routes.profileType], layout: HeaderOnly, SearchOn: false, WideScreen: true}
+   { path: config.routes.login, component: Login, layout: null },
+   { path: config.routes.register, component: Register, layout: null },
+   {
+      path: config.routes.profile,
+      component: Profile,
+      subPath: [
+         { index: true, component: ProfileTabs.Home },
+         { path: 'linked', component: ProfileTabs.LinkedAccounts },
+         { path: 'contact', component: ProfileTabs.Contact },
+         { path: 'personal', component: ProfileTabs.Personal },
+      ],
+      layout: HeaderOnly,
+      SearchOn: false,
+      WideScreen: true,
+   },
 ];
 
 const privateRoutes = [];

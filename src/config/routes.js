@@ -12,8 +12,7 @@ const routes = {
    search: '/search',
    login: '/login',
    register: '/register',
-   profile: '/profile',
-   profileType: '/profile/:type'
+   profile: '/profile'
 };
 
 export default routes;

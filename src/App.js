@@ -12,15 +12,14 @@ function App() {
                <Routes>
                   {publicRoutes.map((route, index) => {
                      const Layout = route.layout === null ? Fragment : route.layout || DefaultLayout;
-                     const SubPath = route.subPath || Fragment
                      const Page = route.component;
 
-                     let props = {}
-                     if(route.layout) {
+                     let props = {};
+                     if (route.layout) {
                         props = {
                            SearchOn: route.SearchOn,
-                           WideScreen: route.WideScreen
-                        }
+                           WideScreen: route.WideScreen,
+                        };
                      }
 
                      return (
@@ -33,7 +32,11 @@ function App() {
                               </Layout>
                            }
                         >
-                           
+                           {route.subPath &&
+                              route.subPath.map((item, index) => {
+                                 const SubPage = item.component;
+                                 return <Route key={index} index={item.index} path={item.path} element={<SubPage />} />;
+                              })}
                         </Route>
                      );
                   })}
