@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4fc68245-b236-4608-8d31-eee9c0132ae4" name="Changes" comment="Update: CommentAction redux, PostAction component">
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/component/Home/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/component/Home/index.js" afterDir="false" />
+    <list default="true" id="4fc68245-b236-4608-8d31-eee9c0132ae4" name="Changes" comment="Update: Profile routes 2">
+      <change afterPath="$PROJECT_DIR$/src/layouts/AccountLayout/AccountLayout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile/component/Contact/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/component/Contact/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,22 +38,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "full.screen.before.presentation.mode": "false",
-    "last_opened_file_path": "C:/Users/Quoc An/Desktop/projects/myblog/src/pages",
-    "list.type.of.created.stylesheet": "Sass",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Quoc An\\Desktop\\projects\\myblog\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Quoc An/Desktop/projects/myblog/src/pages&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;Sass&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Quoc An\\Desktop\\projects\\myblog\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Quoc An\Desktop\projects\myblog\src\pages" />
@@ -110,7 +103,8 @@
       <workItem from="1656729886499" duration="7451000" />
       <workItem from="1656850929316" duration="20000" />
       <workItem from="1656851078236" duration="5271000" />
-      <workItem from="1656938182854" duration="3466000" />
+      <workItem from="1656938182854" duration="3532000" />
+      <workItem from="1656997118258" duration="1169000" />
     </task>
     <task id="LOCAL-00001" summary="Update: Comment component">
       <created>1656045874337</created>
@@ -168,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656737564653</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Update: Profile routes 2">
+      <created>1656941737556</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1656941737556</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,7 +195,8 @@
     <MESSAGE value="Create: FormControl component,&#10;Update: CommentAction context" />
     <MESSAGE value="Create: redux,&#10;Delete: global context" />
     <MESSAGE value="Update: CommentAction redux, PostAction component" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update: CommentAction redux, PostAction component" />
+    <MESSAGE value="Update: Profile routes 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update: Profile routes 2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
