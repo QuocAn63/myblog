@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as AuthActions from '../../../actions/AuthAction'
+import * as AuthActions from '../../../actions/AuthAction';
 import { NavLink } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -23,7 +23,7 @@ import {
    faPenToSquare,
    faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import Button from '../../../components/Button/Button';
+import Button from '../../../components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const cx = classNames.bind(styles);
@@ -71,30 +71,30 @@ const NotifyData = [
 
 function Header({ WideScreen = false, SearchOn = true, ...props }) {
    const [Notifies, setNotifies] = useState([]);
-   const [User, setUser] = useState({})
-   const [isLogin, setIsLogin] = useState(false)
-   const { user, actions } = props
-   
+   const [User, setUser] = useState({});
+   const [isLogin, setIsLogin] = useState(false);
+   const { user, actions } = props;
+
    useEffect(() => {
-         if(!!user.id) {
-            setUser(user)
-            setIsLogin(true)
-            setNotifies(NotifyData);
-         } else {
-            setUser(null)
-            setIsLogin(false)
-            setNotifies([])
-         }
+      if (!!user.id) {
+         setUser(user);
+         setIsLogin(true);
+         setNotifies(NotifyData);
+      } else {
+         setUser(null);
+         setIsLogin(false);
+         setNotifies([]);
+      }
 
       // eslint-disable-next-line
    }, [user.id]);
 
    const handleLogout = () => {
-      actions.logout()
-   }
+      actions.logout();
+   };
 
    const AccountActionMenu = (userId) => {
-      return  [
+      return [
          {
             title: 'Trang cá nhân',
             icon: faUser,
@@ -109,9 +109,9 @@ function Header({ WideScreen = false, SearchOn = true, ...props }) {
             title: 'Tuỳ chỉnh',
             icon: faGear,
             path: '/settings',
-         }
+         },
       ];
-   }
+   };
 
    const innerStyle = WideScreen ? cx('inner-wrapper', 'wide') : cx('inner-wrapper');
 
@@ -170,17 +170,18 @@ function Header({ WideScreen = false, SearchOn = true, ...props }) {
                         render={() => (
                            <div className={cx('menu')}>
                               {AccountActionMenu(User.id).map((item, index) => (
-                                 <AccountMenu title={item.title} to={item.path} icon={item.icon} key={index}/>
+                                 <AccountMenu title={item.title} to={item.path} icon={item.icon} key={index} />
                               ))}
-                              <AccountMenu title='Đăng xuất' icon={faArrowRightFromBracket} horizontal onClick={handleLogout} />
+                              <AccountMenu
+                                 title="Đăng xuất"
+                                 icon={faArrowRightFromBracket}
+                                 horizontal
+                                 onClick={handleLogout}
+                              />
                            </div>
                         )}
                      >
-                        <Image
-                           src={User.avatar}
-                           alt="useravatar"
-                           className={cx('user_avatar')}
-                        />
+                        <Image src={User.avatar} alt="useravatar" className={cx('user_avatar')} />
                      </HeadlessTippy>
                   </>
                ) : (
@@ -201,14 +202,14 @@ function Header({ WideScreen = false, SearchOn = true, ...props }) {
 
 function mapStateToProps(state) {
    return {
-      user: state.authReducers
-   }
+      user: state.authReducers,
+   };
 }
 
 function mapDispatchToProps(dispatch) {
    return {
-      actions: bindActionCreators(AuthActions, dispatch)
-   }
+      actions: bindActionCreators(AuthActions, dispatch),
+   };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

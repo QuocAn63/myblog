@@ -1,6 +1,6 @@
 import styles from './Tag.module.scss';
 import classNames from 'classnames/bind';
-import Button from '../../components/Button/Button';
+import Button from '../../components/Button';
 import { faCheck, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { TagSidebar } from '../../layouts/components/Sidebar';
 import CustomFilter from '../../components/Filter/CustomFilter';
@@ -141,7 +141,7 @@ function Tag() {
          <div className={cx('container')}>
             <div className={cx('content')}>
                <div className={cx('filters')}>
-                  <CustomFilter filters={FilterItems} rootPath={rootPath} defaultPath='posts' />
+                  <CustomFilter filters={FilterItems} rootPath={rootPath} defaultPath="posts" />
                </div>
                <div className={cx('main-content')}>
                   {Posts.map((post, index) => (
@@ -149,7 +149,7 @@ function Tag() {
                   ))}
                </div>
             </div>
-            <TagSidebar /> 
+            <TagSidebar />
          </div>
       </div>
    );

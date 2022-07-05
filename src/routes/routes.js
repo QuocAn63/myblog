@@ -3,6 +3,7 @@ import config from '../config';
 // Layouts
 import HeaderOnly from '../layouts/HeaderOnly';
 import UserLayout from '../layouts/UserLayout';
+import AccountLayout from '../layouts/AccountLayout'
 
 // Pages
 import Home from '../pages/Home';
@@ -41,9 +42,7 @@ const publicRoutes = [
          { path: 'contact', component: ProfileTabs.Contact },
          { path: 'personal', component: ProfileTabs.Personal },
       ],
-      layout: HeaderOnly,
-      SearchOn: false,
-      WideScreen: true,
+      layout: AccountLayout
    },
 ];
 

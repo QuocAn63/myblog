@@ -12,7 +12,7 @@ import CustomFilter from '../../components/Filter/CustomFilter';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as AuthActions from '../../actions/AuthAction';
-import Button from '../../components/Button/Button';
+import Button from '../../components/Button';
 
 const cx = classNames.bind(styles);
 
@@ -140,7 +140,7 @@ function User({ ...props }) {
    const { user, actions } = props;
 
    useEffect(() => {
-         setIsOwnProfile(pathId === user?.id);
+      setIsOwnProfile(pathId === user?.id);
    }, [user]);
 
    return (
