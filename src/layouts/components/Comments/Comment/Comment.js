@@ -11,9 +11,10 @@ import { useCallback, useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-function Comment({ data, children }) {
+function Comment({ data, children, ...props }) {
    const [isReplying, setIsReplying] = useState(false);
-
+   const {likeComment, undoLikeComment, unlikeComment, undoUnlikeComment, doReply} = props
+   
    const handleReply = useCallback(() => setIsReplying(true), []);
    const handleCancelReply = useCallback(() => setIsReplying(false), []);
 
@@ -30,10 +31,10 @@ function Comment({ data, children }) {
                <div className={cx('published_at')}>{data.time}</div>
             </div>
          </div>
-         <div className={cx('content')}>{data.content}</div>
+         <div className={cx('content')}>{data.body}</div>
          <div className={cx('actions')}>
-            <MetaItem icon={faAngleUp} value={data.like} content="Thích" />
-            <MetaItem icon={faAngleDown} value={data.unlike} content="Không thích" />
+            {!data.liked ? <MetaItem icon={faAngleUp} value={data.like} content="Thích" onClick={() => likeComment(data.id)} /> : <MetaItem icon={faAngleUp} value={data.like} className={cx('undo-button')} content="Bỏ thích" onClick={() => undoLikeComment(data.id)} />}
+            {!data.unliked ? <MetaItem icon={faAngleDown} value={data.unlike} content="Không thích" onClick={() => unlikeComment(data.id)} /> : <MetaItem icon={faAngleDown} value={data.unlike} className={cx('undo-button')} content="Bỏ không thích" onClick={() => undoUnlikeComment(data.id)} />}
             <div className={cx('horizontal')}></div>
             <MetaItem value={'Trả lời'} content="Trả lời" className={cx('button')} onClick={handleReply} />
             <MetaItem value={'Chia sẻ'} content="Chia sẻ đường dẫn của bình luận này" />
@@ -41,15 +42,17 @@ function Comment({ data, children }) {
          </div>
          {isReplying && (
             <div className={cx('user-reply-area')}>
-               <UserComment reply parentId={data.parentId} nCancel={handleCancelReply} />
+               <UserComment setIsReplying={setIsReplying} reply parentId={data.parentId || data.id} onCancel={handleCancelReply} doReply={doReply} />
             </div>
          )}
       </div>
    );
 }
 
+
 Comment.propTypes = {
    data: PropTypes.object.isRequired,
+   children: PropTypes.bool,
 };
 
 export default Comment;

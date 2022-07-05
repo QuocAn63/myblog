@@ -1,7 +1,7 @@
 import styles from './Search.module.scss';
 import classNames from 'classnames/bind';
 import SearchSidebar from '../../layouts/components/Sidebar/SearchSidebar';
-import Button from '../../components/Button/Button';
+import Button from '../../components/Button';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import CustomFilter from '../../components/Filter/CustomFilter';
 import Sort from '../../components/Sort';
@@ -23,7 +23,6 @@ const SortItems = [
 ];
 
 function Search() {
-
    return (
       <div className={cx('wrapper')}>
          <div className={cx('container')}>
@@ -36,7 +35,7 @@ function Search() {
                </Button>
             </div>
             <div className={cx('content')}>
-               <CustomFilter filters={FilterItems} typeName='type' />
+               <CustomFilter filters={FilterItems} typeName="type" />
                <div className={cx('sort-area')}>
                   <Sort Title="Sắp xếp theo" SortItems={SortItems} />
                </div>

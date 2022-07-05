@@ -1,5 +1,6 @@
 .wrapper {
     padding: 8px 0;
+    position: relative;
 }
 
 .post-info {
@@ -21,20 +22,23 @@
     }
 }
 
+.content-area {
+    min-height: 200vh;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+}
+
 .comment-side {
     margin-top: 40px;
+}
 
-    .title {
-        margin-bottom: 20px;
-    }
+.actions {
+   flex-grow: 0;
+}
 
-    .comment-wrapper {
-        border: 1px solid var(--med-gray-color);
-        border-radius: 5px;
-        padding: 20px;
-
-        & + .comment-wrapper {
-            margin-top: 20px;
-        }
-    }
+.post-content {
+    flex: 1;
 }

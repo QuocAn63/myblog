@@ -4,6 +4,7 @@ import styles from './PostItem.module.scss';
 import classNames from 'classnames/bind';
 import 'tippy.js/dist/tippy.css';
 
+import TimeConverter from '../TimeConverter'
 import Image from '../../components/Image';
 import Tag from '../../components/Tag';
 import MetaItem from '../../components/MetaItem';
@@ -23,7 +24,7 @@ function PostItem({ data }) {
                <Link to={`/user/${data.AUTHOR.ID}`} className={cx('author-link')}>
                   {data.AUTHOR.FULL_NAME}
                </Link>
-               <span className={cx('meta')}> {data.PUBLISHED_AT}</span>
+               <span className={cx('meta')}> <TimeConverter inputTime={data.PUBLISHED_AT} format /></span>
             </div>
             <div className={cx('body')}>
                <Link to={`/post/${data.ID}`} className={cx('title-link')}>

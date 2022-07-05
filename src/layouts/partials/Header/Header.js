@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import * as AuthActions from '../../../actions/AuthAction';
 import { NavLink } from 'react-router-dom';
-import * as AuthActions from '../../../actions/AuthAction'
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
@@ -23,9 +23,8 @@ import {
    faPenToSquare,
    faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import Button from '../../../components/Button/Button';
+import Button from '../../../components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import authReducers from '../../../reducers/authReducer';
 
 const cx = classNames.bind(styles);
 
@@ -46,24 +45,6 @@ const NavigationItems = [
       title: 'Thảo luận',
       path: '/discussions',
    },
-];
-
-const AccountActionItems = [
-   {
-      title: 'Trang cá nhân',
-      icon: faUser,
-      path: '/user/1',
-   },
-   {
-      title: 'Quản lý nội dung',
-      icon: faFileLines,
-      path: '/myposts',
-   },
-   {
-      title: 'Tuỳ chỉnh',
-      icon: faGear,
-      path: '/settings',
-   }
 ];
 
 const NotifyData = [
@@ -88,18 +69,49 @@ const NotifyData = [
    },
 ];
 
-function Header({ WideScreen = false, SearchOn = true }) {
+function Header({ WideScreen = false, SearchOn = true, ...props }) {
    const [Notifies, setNotifies] = useState([]);
-   const [isLogin, setIsLogin] = useState(false)
+   const [User, setUser] = useState({});
+   const [isLogin, setIsLogin] = useState(false);
+   const { user, actions } = props;
 
    useEffect(() => {
-      setTimeout(() => {
+      if (!!user.id) {
+         setUser(user);
+         setIsLogin(true);
          setNotifies(NotifyData);
-      }, 2000);
-   }, []);
+      } else {
+         setUser(null);
+         setIsLogin(false);
+         setNotifies([]);
+      }
+
+      // eslint-disable-next-line
+   }, [user.id]);
 
    const handleLogout = () => {
-   }
+      actions.logout();
+   };
+
+   const AccountActionMenu = (userId) => {
+      return [
+         {
+            title: 'Trang cá nhân',
+            icon: faUser,
+            path: '/user/' + userId,
+         },
+         {
+            title: 'Quản lý nội dung',
+            icon: faFileLines,
+            path: '/myposts',
+         },
+         {
+            title: 'Tuỳ chỉnh',
+            icon: faGear,
+            path: '/settings',
+         },
+      ];
+   };
 
    const innerStyle = WideScreen ? cx('inner-wrapper', 'wide') : cx('inner-wrapper');
 
@@ -157,18 +169,19 @@ function Header({ WideScreen = false, SearchOn = true }) {
                         placement="top-end"
                         render={() => (
                            <div className={cx('menu')}>
-                              {AccountActionItems.map((item, index) => (
-                                 <AccountMenu title={item.title} to={item.path} icon={item.icon} key={index}/>
+                              {AccountActionMenu(User.id).map((item, index) => (
+                                 <AccountMenu title={item.title} to={item.path} icon={item.icon} key={index} />
                               ))}
-                              <AccountMenu title='Đăng xuất' icon={faArrowRightFromBracket} horizontal onClick={() => handleLogout()} />
+                              <AccountMenu
+                                 title="Đăng xuất"
+                                 icon={faArrowRightFromBracket}
+                                 horizontal
+                                 onClick={handleLogout}
+                              />
                            </div>
                         )}
                      >
-                        <Image
-                           src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/84cb15bc509cfe2084425b7c8478d7cb~c5_100x100.jpeg?x-expires=1655024400&x-signature=9WSxtfM2%2BPrBtVr3g3eusAUxZHY%3D"
-                           alt="useravatar"
-                           className={cx('user_avatar')}
-                        />
+                        <Image src={User.avatar} alt="useravatar" className={cx('user_avatar')} />
                      </HeadlessTippy>
                   </>
                ) : (
@@ -189,14 +202,14 @@ function Header({ WideScreen = false, SearchOn = true }) {
 
 function mapStateToProps(state) {
    return {
-      user: state.authReducers
-   }
+      user: state.authReducers,
+   };
 }
 
 function mapDispatchToProps(dispatch) {
    return {
-      actions: bindActionCreators(AuthActions, dispatch)
-   }
+      actions: bindActionCreators(AuthActions, dispatch),
+   };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

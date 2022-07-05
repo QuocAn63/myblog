@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import styles from './User.module.scss';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
@@ -9,6 +9,10 @@ import { faFlag } from '@fortawesome/free-solid-svg-icons';
 import PostItem from '../../components/PostItem';
 import { UserSidebar } from '../../layouts/components/Sidebar';
 import CustomFilter from '../../components/Filter/CustomFilter';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as AuthActions from '../../actions/AuthAction';
+import Button from '../../components/Button';
 
 const cx = classNames.bind(styles);
 
@@ -17,7 +21,7 @@ const Posts = [
    {
       ID: '1',
       TITLE: 'UI UX là gì? UI, UX design là gì?',
-      PUBLISHED_AT: '2022-07-21 12-05',
+      PUBLISHED_AT: '2022-07-03 12:05',
       AUTHOR: { ID: '1', FULL_NAME: 'Cao Quoc An', AVATAR: '' },
       META: {
          VIEWS: 0,
@@ -43,7 +47,7 @@ const Posts = [
    {
       ID: '1',
       TITLE: 'UI UX là gì? UI, UX design là gì?',
-      PUBLISHED_AT: '2022-07-21 12-05',
+      PUBLISHED_AT: '2022-07-03 12:05',
       AUTHOR: { ID: '1', FULL_NAME: 'Cao Quoc An', AVATAR: '' },
       META: {
          VIEWS: 0,
@@ -69,7 +73,7 @@ const Posts = [
    {
       ID: '1',
       TITLE: 'UI UX là gì? UI, UX design là gì?',
-      PUBLISHED_AT: '2022-07-21 12-05',
+      PUBLISHED_AT: '2022-07-03 12:05',
       AUTHOR: { ID: '1', FULL_NAME: 'Cao Quoc An', AVATAR: '' },
       META: {
          VIEWS: 0,
@@ -95,7 +99,7 @@ const Posts = [
    {
       ID: '1',
       TITLE: 'UI UX là gì? UI, UX design là gì?',
-      PUBLISHED_AT: '2022-07-21 12-05',
+      PUBLISHED_AT: '2022-07-21 12:05',
       AUTHOR: { ID: '1', FULL_NAME: 'Cao Quoc An', AVATAR: '' },
       META: {
          VIEWS: 0,
@@ -130,7 +134,14 @@ const FilterItems = [
    { title: 'Thẻ', path: 'tags' },
 ];
 
-const User = function User() {
+function User({ ...props }) {
+   const [isOwnProfile, setIsOwnProfile] = useState(false);
+   const { id: pathId } = useParams();
+   const { user, actions } = props;
+
+   useEffect(() => {
+      setIsOwnProfile(pathId === user?.id);
+   }, [user]);
 
    return (
       <div className={cx('wrapper')}>
@@ -143,18 +154,24 @@ const User = function User() {
                   {UserData.FULL_NAME}
                </Link>
                <div className={cx('actions')}>
-                  <MetaItem
-                     icon={faFlag}
-                     value="Báo cáo"
-                     content="Báo cáo người dùng này"
-                     className={cx('report-btn')}
-                  />
+                  {isOwnProfile ? (
+                     <Button outline className={cx('edit-profile-btn')} to="/profile">
+                        Sửa
+                     </Button>
+                  ) : (
+                     <MetaItem
+                        icon={faFlag}
+                        value="Báo cáo"
+                        content="Báo cáo người dùng này"
+                        className={cx('report-btn')}
+                     />
+                  )}
                </div>
             </div>
          </div>
          <div className={cx('filter-area')}>
             <div className={cx('filters')}>
-               <CustomFilter filters={FilterItems} typeName='type' />
+               <CustomFilter filters={FilterItems} typeName="type" />
             </div>
             <div className={cx('content')}>
                <div className={cx('container')}>
@@ -167,6 +184,18 @@ const User = function User() {
          </div>
       </div>
    );
-};
+}
 
-export default User;
+function mapStateToProps(state) {
+   return {
+      user: state.authReducers,
+   };
+}
+
+function mapDispatchToProps(dispatch) {
+   return {
+      actions: bindActionCreators(AuthActions, dispatch),
+   };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(User);
