@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4fc68245-b236-4608-8d31-eee9c0132ae4" name="Changes" comment="Update: CommentAction redux, PostAction component">
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/component/Home/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/component/Home/index.js" afterDir="false" />
+    <list default="true" id="4fc68245-b236-4608-8d31-eee9c0132ae4" name="Changes" comment="Update: Profile routes 2">
+      <change afterPath="$PROJECT_DIR$/src/layouts/components/ProfileSidebar/component/ProfileSidebarContainer/ProfileSidebarContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/layouts/components/ProfileSidebar/component/ProfileSidebarContainer/ProfileSidebarContainer.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/layouts/components/ProfileSidebar/component/ProfileSidebarContainer/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/layouts/components/ProfileSidebar/component/ProfileSidebarItem/ProfileSidebarItem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/layouts/components/ProfileSidebar/component/ProfileSidebarItem/ProfileSidebarItem.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/layouts/components/ProfileSidebar/component/ProfileSidebarItem/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/component/Email/Email.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/component/Email/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/component/Home/ProfileHome.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/component/Password/Password.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/component/Password/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/component/TabPane/TabPane.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/component/TabPane/TabPane.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/component/TabPane/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Button/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/Button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GlobalStyles/GlobalStyles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GlobalStyles/GlobalStyles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/components/Comments/Comments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/Comments/Comments.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/components/ProfileSidebar/ProfileSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/ProfileSidebar/ProfileSidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/components/ProfileSidebar/ProfileSidebar.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/ProfileSidebar/ProfileSidebar.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/partials/AccountHeader/AccountHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/partials/AccountHeader/AccountHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/partials/AccountHeader/AccountHeader.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/partials/AccountHeader/AccountHeader.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile/component/Contact/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/component/Contact/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Profile/Profile.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Profile.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Profile/component/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/component/Home/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Profile/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/commentReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/commentReducers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,9 +41,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="SCSS File" />
         <option value="Sass File" />
         <option value="JavaScript File" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -52,12 +73,12 @@
     "WebServerToolWindowFactoryState": "false",
     "full.screen.before.presentation.mode": "false",
     "last_opened_file_path": "C:/Users/Quoc An/Desktop/projects/myblog/src/pages",
-    "list.type.of.created.stylesheet": "Sass",
+    "list.type.of.created.stylesheet": "SCSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Quoc An\\Desktop\\projects\\myblog\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "editing.templates",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -110,7 +131,11 @@
       <workItem from="1656729886499" duration="7451000" />
       <workItem from="1656850929316" duration="20000" />
       <workItem from="1656851078236" duration="5271000" />
-      <workItem from="1656938182854" duration="3466000" />
+      <workItem from="1656938182854" duration="3532000" />
+      <workItem from="1656997118258" duration="1169000" />
+      <workItem from="1657023580457" duration="7431000" />
+      <workItem from="1657075667664" duration="6530000" />
+      <workItem from="1657082354186" duration="2993000" />
     </task>
     <task id="LOCAL-00001" summary="Update: Comment component">
       <created>1656045874337</created>
@@ -168,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656737564653</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Update: Profile routes 2">
+      <created>1656941737556</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1656941737556</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,7 +226,8 @@
     <MESSAGE value="Create: FormControl component,&#10;Update: CommentAction context" />
     <MESSAGE value="Create: redux,&#10;Delete: global context" />
     <MESSAGE value="Update: CommentAction redux, PostAction component" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update: CommentAction redux, PostAction component" />
+    <MESSAGE value="Update: Profile routes 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update: Profile routes 2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

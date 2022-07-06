@@ -137,10 +137,12 @@ const FilterItems = [
 function User({ ...props }) {
    const [isOwnProfile, setIsOwnProfile] = useState(false);
    const { id: pathId } = useParams();
-   const { user, actions } = props;
+   const { user } = props;
 
    useEffect(() => {
       setIsOwnProfile(pathId === user?.id);
+
+      // eslint-disable-next-line
    }, [user]);
 
    return (

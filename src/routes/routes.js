@@ -3,7 +3,7 @@ import config from '../config';
 // Layouts
 import HeaderOnly from '../layouts/HeaderOnly';
 import UserLayout from '../layouts/UserLayout';
-import AccountLayout from '../layouts/AccountLayout'
+import AccountLayout from '../layouts/AccountLayout';
 
 // Pages
 import Home from '../pages/Home';
@@ -41,8 +41,10 @@ const publicRoutes = [
          { path: 'linked', component: ProfileTabs.LinkedAccounts },
          { path: 'contact', component: ProfileTabs.Contact },
          { path: 'personal', component: ProfileTabs.Personal },
+         { path: 'email', component: ProfileTabs.Email },
+         { path: 'password', component: ProfileTabs.Password },
       ],
-      layout: AccountLayout
+      layout: AccountLayout,
    },
 ];
 

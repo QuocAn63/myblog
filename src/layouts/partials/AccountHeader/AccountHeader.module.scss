@@ -1,7 +1,4 @@
 .wrapper {
-   position: fixed;
-   top: 0;
-   right: 0;
    display: flex;
    justify-content: center;
    width: 100%;
@@ -11,11 +8,11 @@
    z-index: 999;
 
    .inner {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: var(--default-content-wide);
-      padding: 0 8px;
+      padding: 0 16px;
 
       .nav-item {
          font-weight: 700;
@@ -30,23 +27,28 @@
    }
 }
 
-.avatar {
+.account-side-menu {
+   display: flex;
+   align-items: center;
+}
+
+.avatar-wrapper {
+   display: block;
    height: 40px;
    width: 40px;
-   border-radius: 50%;
+   cursor: pointer;
+
+   .avatar {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+   }
 }
 
 .menu {
-    width: var(--account-menu-width);
-    background-color: var(--white-color);
-    border-radius: 4px;
-    box-shadow: 0 0 4px 0 rgb(0 0 0 / 10%);
-}
-
-.action-btn {
-    transition: color linear .1s;
-
-    &:hover {
-        color: var(--low-active-color);
-    }
+   width: var(--account-menu-width);
+   background-color: var(--white-color);
+   border-radius: 4px;
+   box-shadow: 0 0 4px 0 rgb(0 0 0 / 10%);
+   border: 1px solid var(--low-gray-color);
 }

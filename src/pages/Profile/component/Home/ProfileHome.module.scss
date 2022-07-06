@@ -1,0 +1,39 @@
+.wrapper {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+
+.container {
+   max-width: var(--default-content-wide);
+   width: 100%;
+
+   .row {
+      display: flex;
+      justify-content: center;
+   }
+}
+
+.avatar-area {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   padding: 16px 0;
+
+   .avatar {
+      width: 128px;
+      height: 128px;
+      cursor: pointer;
+      border-radius: 50%;
+   }
+
+   .title {
+      margin-top: 12px;
+      font-size: 2.2rem;
+   }
+
+   .sub-title {
+      margin-top: 8px;
+   }
+}

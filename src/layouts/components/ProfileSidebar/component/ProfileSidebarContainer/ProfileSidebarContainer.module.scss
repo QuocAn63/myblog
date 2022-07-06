@@ -1,0 +1,13 @@
+.wrapper {
+   .head {
+      cursor: pointer;
+   }
+
+   .menu-list {
+      display: none;
+
+      &.show {
+         display: block;
+      }
+   }
+}

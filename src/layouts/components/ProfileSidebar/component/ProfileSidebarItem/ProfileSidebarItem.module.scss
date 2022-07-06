@@ -1,0 +1,50 @@
+.wrapper {
+   display: inline-flex;
+   align-items: center;
+   width: 100%;
+   padding: 16px 20px;
+   transition: background-color linear 0.15s;
+   cursor: pointer;
+   position: relative;
+   min-width: var(--profile-sidebar-width);
+
+   &.children {
+      padding-left: 40px;
+   }
+
+   &:hover {
+      background-color: var(--light-blue-color);
+   }
+
+   .icon {
+      font-size: 2rem;
+      color: var(--light-gray-color);
+   }
+
+   .list-icon {
+      font-size: 1.5rem;
+      color: var(--light-gray-color);
+      position: absolute;
+      top: 50%;
+      right: 24px;
+      transition: transform linear 0.2s;
+      margin-top: -8px;
+
+      &.show {
+         transform: rotate(-180deg);
+      }
+   }
+
+   .title {
+      flex: 1;
+      color: var(--light-text-color);
+      font-size: 1.5rem;
+      margin-left: 12px;
+      text-transform: capitalize;
+   }
+
+   &.active .title,
+   &.active .icon {
+      color: var(--low-active-color);
+   }
+}

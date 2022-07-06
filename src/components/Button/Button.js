@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './Button.module.scss';
 import classNames from 'classnames/bind';
-import { forwardRef, Fragment } from 'react';
+import { forwardRef } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -28,7 +28,7 @@ function Button(
    },
    ref,
 ) {
-   var Comp = 'button';
+   let Comp = 'button';
 
    const props = { onClick, ...passProps };
 
@@ -39,7 +39,6 @@ function Button(
       props.href = href;
       Comp = 'a';
    }
-
 
    if (disabled) {
       Object.keys(props).forEach((key) => {
