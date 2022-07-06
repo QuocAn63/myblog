@@ -1,0 +1,24 @@
+.wrapper {
+    background-color: var(--low-gray-color);
+    padding: 12px;
+    border-radius: 5px;
+
+    .link {        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        .image {
+            width: 80px;
+            height: 80px;
+        }
+
+        .title {
+            margin-top: 8px;
+            color: var(--light-text-color);
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+    }
+}
+

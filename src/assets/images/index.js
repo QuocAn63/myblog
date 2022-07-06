@@ -1,6 +1,8 @@
 const images = {
     defaultImage: require('./noimage.png'),
-    loginBackground: require('./loginBackground.jpg')
+    loginBackground: require('./loginBackground.jpg'),
+    personalSvg: require('./personal.svg').default,
+    passwordSvg: require('./password.svg').default
 }
 
 export default images
