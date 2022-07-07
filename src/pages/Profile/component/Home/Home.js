@@ -2,12 +2,11 @@ import styles from './ProfileHome.module.scss';
 import classNames from 'classnames/bind';
 import Image from '../../../../components/Image';
 import { useOutletContext } from 'react-router-dom';
-import TabPane from '../TabPane'
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import images from '../../../../assets/images'
+import TabPane from '../TabPane';
+import ChangeAvatar from '../../../../components/ChangeAvatar/ChangeAvatar';
+import images from '../../../../assets/images';
 
 const cx = classNames.bind(styles);
-
 
 function Home() {
    const { user, actions } = useOutletContext();
@@ -23,18 +22,22 @@ function Home() {
                </div>
             </div>
             <div className={cx('row')}>
-               <div className={cx('tab-container')}>
-                  <TabPane image={images.personalSvg} title="Thông tin của tôi" to="/profile/personal" />
-                  <TabPane image={images.personalSvg} title="Thông tin của tôi" to="/profile/personal" />
-                  <TabPane image={images.personalSvg} title="Thông tin của tôi" to="/profile/personal" />
-                  <TabPane image={images.personalSvg} title="Thông tin của tôi" to="/profile/personal" />
-                  <TabPane image={images.personalSvg} title="Thông tin của tôi" to="/profile/personal" />
-                  <TabPane image={images.personalSvg} title="Thông tin của tôi" to="/profile/personal" />
-                  <TabPane image={images.personalSvg} title="Thông tin của tôi" to="/profile/personal" />
-                  <TabPane image={images.personalSvg} title="Thông tin của tôi" to="/profile/personal" />
+               <div className="wide grid">
+                  <div className="row">
+                     <div className="col c-4">
+                        <TabPane image={images.personalSvg} title="Thông tin của tôi" to="/profile/personal" />
+                     </div>
+                     <div className="col c-4">
+                        <TabPane image={images.passwordSvg} title="Quản lý mật khẩu" to="/profile/password" />
+                     </div>
+                     <div className="col c-4">
+                        <TabPane image={images.linkedSvg} title="Thông tin của tôi" to="/profile/linked" />
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
+         <ChangeAvatar />
       </div>
    );
 }
