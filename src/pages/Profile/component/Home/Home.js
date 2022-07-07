@@ -5,18 +5,24 @@ import { useOutletContext } from 'react-router-dom';
 import TabPane from '../TabPane';
 import ChangeAvatar from '../../../../components/ChangeAvatar/ChangeAvatar';
 import images from '../../../../assets/images';
+import { useRef } from 'react';
 
 const cx = classNames.bind(styles);
 
 function Home() {
    const { user, actions } = useOutletContext();
+   const popupRef = useRef()
+
+   const handleOpenChangeAvatarModal= () => {
+      popupRef.current.handleShowPopup()
+   }
 
    return (
       <div className={cx('wrapper')}>
          <div className={cx('container')}>
             <div className={cx('row')}>
                <div className={cx('avatar-area')}>
-                  <Image src={user.avatar} className={cx('avatar')} />
+                  <Image src={user.avatar} className={cx('avatar')} onClick={handleOpenChangeAvatarModal} />
                   <h3 className={cx('title')}>Chào mừng, {user.fullname}</h3>
                   <p className={cx('sub-title')}>Quản lý thông tin cá nhân và bảo mật</p>
                </div>
@@ -37,7 +43,7 @@ function Home() {
                </div>
             </div>
          </div>
-         <ChangeAvatar />
+         <ChangeAvatar ref={popupRef} />
       </div>
    );
 }
