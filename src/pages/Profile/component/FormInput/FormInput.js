@@ -5,8 +5,8 @@ import { memo, useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-function FormInput({ register, label, id, errors, disabled = false, value, ...inputProps }) {
-   const [inputValue, setInputValue] = useState(value || '');
+function FormInput({ register, errors, name, disabled = false, label, ...props }) {
+   const [inputValue, setInputValue] = useState(props.value || '');
 
    const handleChange = (event) => {
       if (!disabled) {
@@ -14,24 +14,23 @@ function FormInput({ register, label, id, errors, disabled = false, value, ...in
       }
    };
 
-   console.log(register);
-
    return (
       <div className={cx('wrapper')}>
-         <label htmlFor={id} className={cx('label')}>
+         <label htmlFor={name} className={cx('label')}>
             {label}
          </label>
          <div className={cx('input-wrapper', errors && 'errors', disabled && 'disabled')}>
             <input
-               id={id}
+               id={name}
                disabled={disabled}
                value={inputValue}
-               onChange={(e) => handleChange(e)}
-               {...register}
-               {...inputProps}
+               {...register(name, {
+                  onChange: handleChange
+               })}
+               {...props}
             />
          </div>
-         {errors && <div className={cx('errors')}>{errors.message}</div>}
+         {errors && <div className={cx('errors-show')}>{errors.message}</div>}
       </div>
    );
 }

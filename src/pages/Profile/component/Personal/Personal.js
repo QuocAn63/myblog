@@ -7,21 +7,26 @@ import { useState } from 'react';
 import FormInput from '../FormInput/FormInput';
 import Button from '../../../../components/Button';
 import { useForm } from 'react-hook-form';
-import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup';
+import FormSelect from '../FormSelect/FormSelect';
 
 const cx = classNames.bind(styles);
+
+const schema = yup.object({
+   fullname: yup.string().min(5, 'Tên hiển thị phải nhiều hơn 5 ký tự').required('Tên hiển thị không được bỏ trống'),
+   dob: yup.string().required('Ngày sinh không được bỏ trống'),
+   gender: yup.string().required('Giới tính không được bỏ trống'),
+}).required()
 
 function Personal() {
    const [show, setShow] = useState(false);
    const {
       register,
       handleSubmit,
-      formState: errors,
+      formState: { errors },
    } = useForm({
-      mode: 'onBlur',
-      validationSchema: Yup.object({
-         fullname: Yup.string().min(5, 'Tên hiển thị phải nhiều hơn 5 kí tự').required(),
-      }),
+      resolver: yupResolver(schema)
    });
    const { user } = useOutletContext();
 
@@ -48,18 +53,17 @@ function Personal() {
                      <div className={cx('input-group')}>
                         <FormInput
                            type="text"
-                           id="username"
                            name="username"
                            label="Tên tài khoản"
                            value={user.username}
                            errors={errors.username}
-                           disabled={true}
+                           disabled
+                           register={register}
                         />
                      </div>
                      <div className={cx('input-group')}>
                         <FormInput
                            type="text"
-                           id="fullname"
                            name="fullname"
                            value={user.fullname}
                            errors={errors.fullname}
@@ -68,8 +72,8 @@ function Personal() {
                         />
                      </div>
                      <div className={cx('input-group')}>
-                        <FormInput type="text" label="Ngày sinh" />
-                        <FormInput type="text" label="Giới tính" />
+                        <FormInput type="text" register={register} errors={errors.dob} name='dob' label="Ngày sinh" />
+                        <FormSelect type="text" readOnly register={register} errors={errors.gender} name='gender' label="Giới tính" options={[{key: 'Nam', value: '0'}, {key: 'Nữ', value: '1'}]} />
                      </div>
                   </div>
                   <div className={cx('controllers')}>
