@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4fc68245-b236-4608-8d31-eee9c0132ae4" name="Changes" comment="Update: Profile Home page">
-      <change afterPath="$PROJECT_DIR$/src/components/ChangeAvatar/AvatarPreview/AvatarPreview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ChangeAvatar/AvatarPreview/AvatarPreview.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ChangeAvatar/AvatarPreview/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/component/FormInput/FormInput.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/component/FormInput/FormInput.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/component/FormInput/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/component/Personal/Personal.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="4fc68245-b236-4608-8d31-eee9c0132ae4" name="Changes" comment="Update: ChangeAvatar 2, Profile Personal page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/Button.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChangeAvatar/ChangeAvatar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChangeAvatar/ChangeAvatar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GlobalStyles/GlobalStyles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GlobalStyles/GlobalStyles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile/component/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/component/Home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile/component/Personal/Personal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/component/Personal/Personal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Profile/component/FormSelect/FormSelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/component/FormSelect/FormSelect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Profile/component/FormSelect/FormSelect.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/component/FormSelect/FormSelect.module.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +110,9 @@
       <workItem from="1657075667664" duration="6530000" />
       <workItem from="1657082354186" duration="2993000" />
       <workItem from="1657196758650" duration="4686000" />
-      <workItem from="1657246112236" duration="10016000" />
+      <workItem from="1657246112236" duration="10132000" />
+      <workItem from="1657282875658" duration="2054000" />
+      <workItem from="1657334199616" duration="1995000" />
     </task>
     <task id="LOCAL-00001" summary="Update: Comment component">
       <created>1656045874337</created>
@@ -195,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657172096244</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Update: ChangeAvatar 2, Profile Personal page">
+      <created>1657259158626</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1657259158626</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,7 +219,8 @@
     <MESSAGE value="Update: CommentAction redux, PostAction component" />
     <MESSAGE value="Update: Profile routes 2" />
     <MESSAGE value="Update: Profile Home page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update: Profile Home page" />
+    <MESSAGE value="Update: ChangeAvatar 2, Profile Personal page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update: ChangeAvatar 2, Profile Personal page" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
