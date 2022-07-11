@@ -7,26 +7,22 @@ import { useState } from 'react';
 import FormInput from '../FormInput/FormInput';
 import Button from '../../../../components/Button';
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import FormSelect from '../FormSelect/FormSelect';
 
-const cx = classNames.bind(styles);
+import config from '../../../../config';
 
-const schema = yup.object({
-   fullname: yup.string().min(5, 'Tên hiển thị phải nhiều hơn 5 ký tự').required('Tên hiển thị không được bỏ trống'),
-   dob: yup.string().required('Ngày sinh không được bỏ trống'),
-   gender: yup.string().required('Giới tính không được bỏ trống'),
-}).required()
+const cx = classNames.bind(styles);
 
 function Personal() {
    const [show, setShow] = useState(false);
    const {
       register,
       handleSubmit,
+      setValue,
       formState: { errors },
    } = useForm({
-      resolver: yupResolver(schema)
+      resolver: yupResolver(config.yup.personalSchema),
    });
    const { user } = useOutletContext();
 
@@ -52,6 +48,7 @@ function Personal() {
                   <div className={cx('input-container')}>
                      <div className={cx('input-group')}>
                         <FormInput
+                           autoComplete="off"
                            type="text"
                            name="username"
                            label="Tên tài khoản"
@@ -63,6 +60,7 @@ function Personal() {
                      </div>
                      <div className={cx('input-group')}>
                         <FormInput
+                           autoComplete="off"
                            type="text"
                            name="fullname"
                            value={user.fullname}
@@ -72,8 +70,30 @@ function Personal() {
                         />
                      </div>
                      <div className={cx('input-group')}>
-                        <FormInput type="text" register={register} errors={errors.dob} name='dob' label="Ngày sinh" />
-                        <FormSelect type="text" readOnly register={register} errors={errors.gender} name='gender' label="Giới tính" options={[{key: 'Nam', value: '0'}, {key: 'Nữ', value: '1'}]} />
+                        <FormInput
+                           autoComplete="off"
+                           type="text"
+                           name="dob"
+                           value={user.dob}
+                           errors={errors.dob}
+                           register={register}
+                           label="Ngày sinh"
+                           placeholder="Ngày sinh (MM/DD/YYYY)"
+                        />
+                        <FormSelect
+                           autoComplete="off"
+                           type="text"
+                           readOnly
+                           register={register}
+                           errors={errors.gender}
+                           name="gender"
+                           label="Giới tính"
+                           setValue={setValue}
+                           options={[
+                              { key: 'Nam', value: '0' },
+                              { key: 'Nữ', value: '1' },
+                           ]}
+                        />
                      </div>
                   </div>
                   <div className={cx('controllers')}>

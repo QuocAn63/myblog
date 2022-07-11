@@ -1,0 +1,15 @@
+.react-datepicker__triangle {
+   display: none;
+}
+
+.react-datepicker__current-month {
+   font-size: 1.3rem;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+   width: 3rem;
+   line-height: 3rem;
+   font-size: 1.4rem;
+}

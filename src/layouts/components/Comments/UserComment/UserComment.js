@@ -2,7 +2,7 @@ import styles from './UserComment.module.scss';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import Image from '../../../../components/Image';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../../../components/Button';
 import { useState } from 'react';
 import { connect } from 'react-redux';
@@ -22,6 +22,7 @@ function UserComment({
 }) {
    const [CommentValue, setCommentValue] = useState('');
    const { user } = props;
+   const navigate = useNavigate();
    const autoGrow = (e) => {
       e.target.style.height = '5px';
       e.target.style.height = e.target.scrollHeight + 'px';
@@ -44,38 +45,50 @@ function UserComment({
       handleClear();
    };
 
+   const navigateToLogin = () => {
+      navigate('/login', { replace: true });
+   };
+
    return (
       <div className={cx('wrapper')}>
-         <div className={cx('container')}>
-            <Link to={`/users/`} className={cx('avatar-link')}>
-               <Image src="" className={cx('avatar')} />
-            </Link>
-            <div className={cx('comment-container')}>
-               <textarea
-                  className={cx('comment-area')}
-                  value={CommentValue}
-                  onChange={(e) => setCommentValue(e.target.value)}
-                  placeholder="Viết bình luận..."
-                  onInput={(e) => autoGrow(e)}
-               ></textarea>
+         {user.id ? (
+            <>
+               <div className={cx('container')}>
+                  <Link to={`/user/${user.id}`} className={cx('avatar-link')}>
+                     <Image src={user.avatar} className={cx('avatar')} />
+                  </Link>
+                  <div className={cx('comment-container')}>
+                     <textarea
+                        className={cx('comment-area')}
+                        value={CommentValue}
+                        onChange={(e) => setCommentValue(e.target.value)}
+                        placeholder="Viết bình luận..."
+                        onInput={(e) => autoGrow(e)}
+                     ></textarea>
+                  </div>
+               </div>
+               <div className={cx('actions')}>
+                  {reply ? (
+                     <>
+                        <Button text onClick={onCancel}>
+                           Huỷ
+                        </Button>
+                        <Button primary disabled={!CommentValue} onClick={handleReply}>
+                           Reply
+                        </Button>
+                     </>
+                  ) : (
+                     <Button primary disabled={!CommentValue} onClick={handleComment}>
+                        Bình luận
+                     </Button>
+                  )}
+               </div>
+            </>
+         ) : (
+            <div className={cx('not-login-comment-side')} onClick={navigateToLogin}>
+               <span>Đăng nhập để bình luận</span>
             </div>
-         </div>
-         <div className={cx('actions')}>
-            {reply ? (
-               <>
-                  <Button text onClick={onCancel}>
-                     Huỷ
-                  </Button>
-                  <Button primary disabled={!CommentValue} onClick={handleReply}>
-                     Reply
-                  </Button>
-               </>
-            ) : (
-               <Button primary disabled={!CommentValue} onClick={handleComment}>
-                  Bình luận
-               </Button>
-            )}
-         </div>
+         )}
       </div>
    );
 }

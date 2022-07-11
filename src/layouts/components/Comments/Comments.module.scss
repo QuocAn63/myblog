@@ -1,17 +1,15 @@
 .wrapper {
-  border: 1px solid var(--med-gray-color);
-  border-radius: 5px;
-  padding: 20px;
+   border: 1px solid var(--med-gray-color);
+   border-radius: 5px;
+   padding: 20px;
 
-  & + .wrapper {
-    margin-top: 20px;
-  }
+   & + .wrapper {
+      margin-top: 20px;
+   }
 }
 
 .user-comment {
-  border: 1px solid var(--med-gray-color);
-    border-radius: 5px;
-    padding: 20px;
-  margin-bottom: 20px;
+   border: 1px solid var(--med-gray-color);
+   border-radius: 5px;
+   margin-bottom: 20px;
 }
-

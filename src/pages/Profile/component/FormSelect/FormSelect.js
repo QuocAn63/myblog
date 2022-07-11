@@ -3,23 +3,27 @@ import { motion } from 'framer-motion';
 import styles from './FormSelect.module.scss';
 import classNames from 'classnames/bind';
 import { useOnClickOutside } from '../../../../hooks/useOnClickOutside';
+import PropTypes from 'prop-types';
 
 const cx = classNames.bind(styles);
 
-function FormSelect({ register, name, errors, label, options, ...props }) {
+function FormSelect({ register, name, errors, label, options, setValue, ...props }) {
    const [show, setShow] = useState(false);
    const [currentValue, setCurrentValue] = useState('');
-   const selectRef = useRef();
+   const formRef = useRef();
 
-   useOnClickOutside(selectRef, () => setShow(false));
+   useOnClickOutside(formRef, () => setShow(false));
 
    useEffect(() => {
       const element = document.querySelector(`input[name='${name}']`);
 
       if (element) {
-         element.value = currentValue.value;
+         setValue(name, currentValue.value);
+         element.value = currentValue.key || '';
       }
       setShow(false);
+
+      // eslint-disable-next-line
    }, [currentValue]);
 
    const handleChange = (option) => {
@@ -34,12 +38,12 @@ function FormSelect({ register, name, errors, label, options, ...props }) {
    };
 
    return (
-      <div className={cx('wrapper')}>
+      <div className={cx('wrapper')} ref={formRef}>
          <label htmlFor={name} className={cx('label')}>
             {label}
          </label>
          <div className={cx('input-wrapper', errors && 'errors', props.disabled && 'disabled')}>
-            <input ref={selectRef} readOnly onClick={handleToggle} placeholder="Chọn" {...register(name)} />
+            <input readOnly onClick={handleToggle} placeholder="Chọn" {...register(name)} />
             {show && (
                <motion.div className={cx('dropdown')} initial="hidden" animate="visible" variants={variants}>
                   <ul>
@@ -56,5 +60,14 @@ function FormSelect({ register, name, errors, label, options, ...props }) {
       </div>
    );
 }
+
+FormSelect.propTypes = {
+   register: PropTypes.func.isRequired,
+   name: PropTypes.string.isRequired,
+   errors: PropTypes.object,
+   label: PropTypes.string.isRequired,
+   options: PropTypes.array.isRequired,
+   setValue: PropTypes.func.isRequired,
+};
 
 export default FormSelect;
